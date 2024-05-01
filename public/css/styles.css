@@ -1,31 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@100..900&display=swap");
 
 :root {
 	color-scheme: light dark;
-	font-synthesis: none;
-  	text-rendering: optimizeLegibility;
-	color: #fafbfc;
-	background-color: #0d0e0f;
 }
 
 body {
+	font-synthesis: none;
+  	text-rendering: optimizeLegibility;
+	color: #f1f2f3;
+	background-color: #0d0e0f;
 	font-family: "Inter Tight", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
 }
-
-.lexend-deca-font {
-	font-family: "Lexend Deca", sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
-}
-
-.dm-mono-light {
-	font-family: "DM Mono", monospace;
-	font-weight: 300;
-	font-style: normal;
-}
-
 pre code {
 	font-family: "DM Mono", monospace;
 	line-height: 1.2;
@@ -33,32 +20,17 @@ pre code {
 	font-style: normal;
 }
 
-.dm-mono-medium {
-	font-family: "DM Mono", monospace;
-	font-weight: 500;
-	font-style: normal;
-}
 
-.dm-mono-light-italic {
-	font-family: "DM Mono", monospace;
-	font-weight: 300;
-	font-style: italic;
-}
-
-.dm-mono-regular-italic {
-	font-family: "DM Mono", monospace;
-	font-weight: 400;
-	font-style: italic;
-}
-
-.dm-mono-medium-italic {
-	font-family: "DM Mono", monospace;
-	font-weight: 500;
-	font-style: italic;
-}
+.outfit-font { font-family: "Outfit", sans-serif; font-optical-sizing: auto; font-style: normal; }
+.lexend-deca-font { font-family: "Lexend Deca", sans-serif; font-optical-sizing: auto; font-style: normal; }
+.dm-mono-light { font-family: "DM Mono", monospace; font-weight: 300; font-style: normal; }
+.dm-mono-medium { font-family: "DM Mono", monospace; font-weight: 500; font-style: normal; }
+.dm-mono-light-italic { font-family: "DM Mono", monospace; font-weight: 300; font-style: italic; }
+.dm-mono-regular-italic { font-family: "DM Mono", monospace; font-weight: 400; font-style: italic; }
+.dm-mono-medium-italic { font-family: "DM Mono", monospace; font-weight: 500; font-style: italic; }
 
 @media (prefers-color-scheme: light) {
-	:root {
+	body {
 		background-color: #ffffff;
 		color: #213547;
 	}
@@ -69,6 +41,18 @@ pre {
     box-shadow: inset;
 }
 
+.fix { width: 100%; height: 330px; }
+.fix2 { width: 100%; height: 330px; }
+#fit { object-fit: cover; object-position: right; }
+#fit2 { object-fit: cover; object-position: center; }
+
+.gradient1 {
+	background: linear-gradient(0deg, hsla(188, 85%, 52%, 0.7), hsla(263, 88%, 45%, 0.7) 100%);
+}
+
+.gradient2 {
+	background: linear-gradient(270deg, hsla(257, 85%, 52%, 0.7), hsla(149, 88%, 45%, 0.7) 100%);
+}
 
 .divider::after,
 .divider::before {
@@ -76,4 +60,9 @@ pre {
     flex: 1;
     height: 1px;
     background: #aaa;
+}
+
+@media (min-width: 768px) {
+	.fix { width: 100%; height: 480px; }
+	.fix2 { width: 100%; height: 280px; }
 }
