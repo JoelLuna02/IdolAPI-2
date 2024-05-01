@@ -1,0 +1,5 @@
+{
+	"ext": "js,json,mjs,cjs,gql",
+	"exec": "babel-node source/server.js",
+	"ignore": ["node_modules"]
+}

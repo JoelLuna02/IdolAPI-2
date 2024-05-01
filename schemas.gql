@@ -1,0 +1,69 @@
+type VTuber {
+	_id: String
+	fullname: String
+	fanname: String
+	branch: String
+	unit: String
+	likes: [String!]
+	dislikes: [String!]
+	hashtag: Hashtag
+	socialNetworks: [SocialNetwork!]
+}
+
+type Hashtag {
+	_id: String
+	general: String
+	stream: String
+	fanart: String
+	memes: String
+	vtuber: VTuber
+}
+
+type SocialNetwork {
+	_id: String
+	application: String
+	accounturl: String
+	vtuber: VTuber
+}
+
+# Queries
+# *******
+
+type Query {
+	getVtuber(ID: ID!): VTuber!
+	getHashtag(ID: ID!): Hashtag!
+	getSocial(ID: ID!): SocialNetwork!
+	hashtag: [Hashtag]
+	socials: [SocialNetwork]
+	vtuber: [VTuber]
+}
+
+# Mutations
+# *********
+
+type Mutation {
+	assignHashtagToVtuber(HTID: ID!, VTID: ID!): VTuber!
+	assignSocialNetworkToVtuber(SNID: ID!, VTID: ID!): VTuber!
+	addVtuber(
+		fullname: String
+		fanname: String
+		branch: String
+		unit: String
+		likes: [String!]
+		dislikes: [String!]
+	): VTuber!
+	addHashtag(general: String, stream: String, fanart: String, memes: String): Hashtag!
+	addSocialNetwork(application: String, accounturl: String): SocialNetwork!
+	deleteVtuber(ID: ID!): Boolean
+	deleteHashtag(ID: ID!): Boolean
+	deleteSocialNetwork(ID: ID!): Boolean
+	editVtuber(
+		ID: ID!
+		fullname: String
+		fanname: String
+		branch: String
+		unit: String
+		likes: [String!]
+		dislikes: [String!]
+	): Boolean
+}
