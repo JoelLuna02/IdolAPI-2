@@ -48,10 +48,14 @@ async function init_server() {
 		return res.render("docs", { title: "Documentation | IdolAPI", docs: html });
 	});
 	app.get("/about", (_req, res) => {
-		return res.render("about", { title: "About this project | IdolAPI" });
+		const markdown = fs.readFileSync("./views/markdown/about.mdx", "utf-8");
+		const html = marked(markdown);
+		return res.render("about", { title: "About this project | IdolAPI", docs: html });
 	});
 	app.get("/support", (_req, res) => {
-		return res.render("support", { title: "Support us | IdolAPI" });
+		const markdown = fs.readFileSync("./views/markdown/support.mdx", "utf-8");
+		const html = marked(markdown);
+		return res.render("support", { title: "Support us | IdolAPI", docs: html });
 	});
 
 	app.use((req, res, next) => {
