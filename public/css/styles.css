@@ -34,6 +34,9 @@ pre code {
 		background-color: #ffffff;
 		color: #213547;
 	}
+	#offcanvasExample {
+		background-color: #0d0e0f;
+	}
 }
 
 pre {
@@ -61,6 +64,28 @@ pre {
     height: 1px;
     background: #aaa;
 }
+
+@media (min-width: 768px) {
+	body {
+		overflow: auto;
+	}
+	#content {
+		padding-left: 270px;
+	}
+	#offcanvasExample {
+		transform: none;
+		visibility: visible !important;
+		width: 240px;
+		top: 60px;
+		height: calc(100% - 100px);
+		left: 0px;
+		background: #fafbfc;
+	}
+	.offcanvas-collapse {
+		display: none !important;
+	}
+}
+
 
 @media (min-width: 768px) {
 	.fix { width: 100%; height: 480px; }

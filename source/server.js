@@ -5,6 +5,7 @@ import { ruruHTML } from "ruru/server";
 import morgan from "morgan";
 import { create } from "express-handlebars";
 import { marked } from "marked";
+import * as cheerio from "cheerio";
 import fs from "fs";
 
 import schema from "./graphql/schemas";
@@ -16,6 +17,20 @@ import social_routes from "./routes/social.routes";
 const app = express();
 const hbs = create({});
 const port = 3000;
+
+function getHeaders(data) {
+	const headers = [];
+	const lines = data.split("\n");
+
+	lines.forEach((line) => {
+		if (line.startsWith("#")) {
+			const header = line.replace(/#/g, "").trim();
+			const id = header.toLowerCase().replace(/[^\w]+/g, "-");
+			headers.push({ text: header, id: id });
+		}
+	});
+	return headers;
+}
 
 /** ## Server initializer
  * This function is responsible for running the Express.js server. You can configure routes, and middlewares,
@@ -46,11 +61,14 @@ async function init_server() {
 	app.get("/", (_req, res) => {
 		return res.render("index", { title: "IdolAPI" });
 	});
+
 	app.get("/docs", (_req, res) => {
 		const markdown = fs.readFileSync("./views/markdown/documentation.mdx", "utf-8");
 		const html = marked(markdown);
-		return res.render("docs", { title: "Documentation | IdolAPI", docs: html });
+		const headers = getHeaders(markdown);
+		return res.render("docs", { title: "Documentation | IdolAPI", docs: html, headers });
 	});
+
 	app.get("/about", (_req, res) => {
 		const markdown = fs.readFileSync("./views/markdown/about.mdx", "utf-8");
 		const html = marked(markdown);
