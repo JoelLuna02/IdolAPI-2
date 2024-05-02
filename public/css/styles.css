@@ -8,6 +8,18 @@
 	background-color: #1a1b1c;
 	color: #f1f2f3;
 }
+.footing a.nav-link {
+	color: #d3d4d5;
+}
+.footing a.nav-link:hover {
+	color: #ffffff;
+}
+.footing h5.offcanvas-title {
+	color: #d3d4d5;
+}
+.footing button.btn-close {
+	color: #d3d4d5;
+}
 
 body {
 	font-synthesis: none;
@@ -20,7 +32,7 @@ body {
 }
 pre code {
 	font-family: "DM Mono", monospace;
-	line-height: 1.2;
+	line-height: 1.1;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -50,6 +62,18 @@ pre code {
 		background-color: #f4f5f6;
 		color: #213547;
 	}
+	.footing a.nav-link {
+		color: #2d4457;
+	}
+	.footing a.nav-link:hover {
+		color: black; font-weight: 500;
+	}
+	.footing button.btn-close {
+		color: hsl(200, 6%, 10%);
+	}
+	.footing h5.offcanvas-title {
+		color: hsl(200, 6%, 10%);
+	}	
 	.imagefooter {
 		filter: invert(0%);
 	}
@@ -93,7 +117,7 @@ pre {
 		visibility: visible !important;
 		width: 240px;
 		top: 60px;
-		height: calc(100% - 220px);
+		height: calc(100% - 190px);
 		left: 0px;
 	}
 	.offcanvas-collapse {
