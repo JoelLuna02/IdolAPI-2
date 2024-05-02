@@ -34,9 +34,42 @@ export const vtuber_resolver = {
 		},
 	},
 	Mutation: {
-		async addVtuber(_, { fullname, fanname, branch, unit, likes, dislikes }) {
+		async addVtuber(
+			_,
+			{
+				fullname,
+				fanname,
+				quote,
+				branch,
+				unit,
+				emoji,
+				youtube,
+				gender,
+				likes,
+				dislikes,
+				age,
+				birthday,
+				zodiac,
+				height,
+			},
+		) {
 			await connectDB();
-			const new_vtuber = new VTuber({ fullname, fanname, branch, unit, likes, dislikes });
+			const new_vtuber = new VTuber({
+				fullname,
+				fanname,
+				quote,
+				branch,
+				unit,
+				emoji,
+				youtube,
+				gender,
+				likes,
+				dislikes,
+				age,
+				birthday,
+				zodiac,
+				height,
+			});
 			const vtuber = await new_vtuber.save();
 			return vtuber;
 		},
@@ -47,11 +80,48 @@ export const vtuber_resolver = {
 			const deleted = (await VTuber.deleteOne({ _id: ID })).deletedCount;
 			return deleted;
 		},
-		async editVtuber(_, { ID, fullname, fanname, branch, unit, likes, dislikes }) {
+		async editVtuber(
+			_,
+			{
+				ID,
+				fullname,
+				fanname,
+				quote,
+				branch,
+				unit,
+				emoji,
+				youtube,
+				gender,
+				likes,
+				dislikes,
+				age,
+				birthday,
+				zodiac,
+				height,
+			},
+		) {
 			await connectDB();
 			if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
 			const updated = (
-				await VTuber.updateOne({ _id: ID }, { fullname, fanname, branch, unit, likes, dislikes })
+				await VTuber.updateOne(
+					{ _id: ID },
+					{
+						fullname,
+						fanname,
+						quote,
+						branch,
+						unit,
+						emoji,
+						youtube,
+						gender,
+						likes,
+						dislikes,
+						age,
+						birthday,
+						zodiac,
+						height,
+					},
+				)
 			).modifiedCount;
 			return updated;
 		},
