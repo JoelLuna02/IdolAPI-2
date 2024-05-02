@@ -6,6 +6,7 @@
 
 .footing {
 	background-color: #1a1b1c;
+	color: #f1f2f3;
 }
 
 body {
@@ -45,11 +46,9 @@ pre code {
 		background-color: #ffffff;
 		color: #213547;
 	}
-	#offcanvasExample {
-		background-color: #fafbfc;
-	}
 	.footing {
-		background-color: #f1f2f3;
+		background-color: #f4f5f6;
+		color: #213547;
 	}
 	.imagefooter {
 		filter: invert(0%);
@@ -96,7 +95,6 @@ pre {
 		top: 60px;
 		height: calc(100% - 220px);
 		left: 0px;
-		background: #f4f5f6b3;
 	}
 	.offcanvas-collapse {
 		display: none !important;
