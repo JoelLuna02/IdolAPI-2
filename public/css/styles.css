@@ -4,6 +4,10 @@
 	color-scheme: light dark;
 }
 
+.footing {
+	background-color: #1a1b1c;
+}
+
 body {
 	font-synthesis: none;
   	text-rendering: optimizeLegibility;
@@ -20,6 +24,9 @@ pre code {
 	font-style: normal;
 }
 
+#offcanvasExample {
+	width: 270px;
+}
 
 .outfit-font { font-family: "Outfit", sans-serif; font-optical-sizing: auto; font-style: normal; }
 .lexend-deca-font { font-family: "Lexend Deca", sans-serif; font-optical-sizing: auto; font-style: normal; }
@@ -29,13 +36,23 @@ pre code {
 .dm-mono-regular-italic { font-family: "DM Mono", monospace; font-weight: 400; font-style: italic; }
 .dm-mono-medium-italic { font-family: "DM Mono", monospace; font-weight: 500; font-style: italic; }
 
+.imagefooter {
+	filter: invert(100%);
+}
+
 @media (prefers-color-scheme: light) {
 	body {
 		background-color: #ffffff;
 		color: #213547;
 	}
 	#offcanvasExample {
-		background-color: #0d0e0f;
+		background-color: #fafbfc;
+	}
+	.footing {
+		background-color: #f1f2f3;
+	}
+	.imagefooter {
+		filter: invert(0%);
 	}
 }
 
@@ -77,17 +94,13 @@ pre {
 		visibility: visible !important;
 		width: 240px;
 		top: 60px;
-		height: calc(100% - 100px);
+		height: calc(100% - 220px);
 		left: 0px;
-		background: #fafbfc;
+		background: #f4f5f6b3;
 	}
 	.offcanvas-collapse {
 		display: none !important;
 	}
-}
-
-
-@media (min-width: 768px) {
 	.fix { width: 100%; height: 480px; }
 	.fix2 { width: 100%; height: 280px; }
 }
