@@ -37,7 +37,11 @@ async function init_server() {
 
 	app.get("/gql", (_req, res) => {
 		res.type("html");
-		res.end(ruruHTML({ endpoint: "/api/graphql" }));
+		res.end(
+			ruruHTML({
+				endpoint: "/api/graphql",
+			}),
+		);
 	});
 	app.get("/", (_req, res) => {
 		return res.render("index", { title: "IdolAPI" });

@@ -6,9 +6,9 @@ const dburl = process.env.MONGODB_URI;
 const db_name = process.env.MONGODB_NAME;
 
 async function connectDB() {
-	if (!dburl) {
+	if (dburl === undefined) {
 		throw new Error("No mongodb database url specified");
-	} else if (!db_name) {
+	} else if (db_name === undefined) {
 		throw new Error("No database name specified");
 	}
 	await mongoose.connect(`${dburl}/${db_name}`).catch((err) => {

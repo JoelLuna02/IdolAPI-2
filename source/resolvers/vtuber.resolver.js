@@ -3,6 +3,7 @@ import connectDB from "../database";
 import VTuber from "../models/VTuber";
 import { magentaBright, redBright } from "colorette";
 import Hashtag from "../models/Hashtag";
+import { GraphQLError } from "graphql";
 
 export const vtuber_resolver = {
 	Query: {
@@ -21,7 +22,7 @@ export const vtuber_resolver = {
 		async getVtuber(_, { ID }) {
 			try {
 				await connectDB();
-				if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
+				if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
 				const vtuber = await VTuber.findById(ID).populate("hashtag");
 				if (!vtuber) throw new Error("VTuber not found!");
 				let success = `[${magentaBright("GRAPHQL")}] Successful query!`;
@@ -44,6 +45,7 @@ export const vtuber_resolver = {
 				unit,
 				emoji,
 				youtube,
+				status,
 				gender,
 				likes,
 				dislikes,
@@ -62,6 +64,7 @@ export const vtuber_resolver = {
 				unit,
 				emoji,
 				youtube,
+				status,
 				gender,
 				likes,
 				dislikes,
@@ -75,7 +78,7 @@ export const vtuber_resolver = {
 		},
 		async deleteVtuber(_, { ID }) {
 			await connectDB();
-			if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
+			if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
 			await Hashtag.findOneAndDelete({ vtuber: ID });
 			const deleted = (await VTuber.deleteOne({ _id: ID })).deletedCount;
 			return deleted;
@@ -91,6 +94,7 @@ export const vtuber_resolver = {
 				unit,
 				emoji,
 				youtube,
+				status,
 				gender,
 				likes,
 				dislikes,
@@ -101,7 +105,7 @@ export const vtuber_resolver = {
 			},
 		) {
 			await connectDB();
-			if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
+			if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
 			const updated = (
 				await VTuber.updateOne(
 					{ _id: ID },
@@ -116,6 +120,7 @@ export const vtuber_resolver = {
 						gender,
 						likes,
 						dislikes,
+						status,
 						age,
 						birthday,
 						zodiac,

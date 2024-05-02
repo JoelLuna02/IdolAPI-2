@@ -9,7 +9,7 @@ vtuber_routes.get("/", async (req, res) => {
 	await connectDB();
 	const vtubers = await VTuber.find()
 		.select(
-			"fullname fanname quote branch unit emoji youtube gender likes dislikes age birthday zodiac height",
+			"fullname fanname quote branch unit emoji youtube status gender likes dislikes age birthday zodiac height",
 		)
 		.populate("hashtag", "-_id general stream fanart memes")
 		.populate("socialNetworks", "_id application accounturl");
@@ -25,7 +25,7 @@ vtuber_routes.get("/:vtid", async (req, res) => {
 		}
 		const vtuber = await VTuber.findById(vtid)
 			.select(
-				"-_id fullname fanname quote branch unit emoji youtube gender likes dislikes age birthday zodiac height",
+				"-_id fullname fanname quote branch unit emoji youtube status gender likes dislikes age birthday zodiac height",
 			)
 			.populate("hashtag", "-_id general stream fanart memes");
 		if (!vtuber) return res.status(404).json({ message: "VTuber not found" });
