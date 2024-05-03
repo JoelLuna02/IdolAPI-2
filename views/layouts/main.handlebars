@@ -23,36 +23,40 @@
     <header class="fixed-top lexend-deca-font">
         <nav class="navbar navbar-expand-md shadow border border-0 footing">
             <div class="container-fluid container-xl px-2 px-md-4 px-lg-5 py-1 py-md-0">
-                <div class="d-md-none" style="width: 3.2rem;"></div>
-                <a class="navbar-brand fw-bold" href="/">IdolAPI</a>
+                {{#with navbar}}
+                <a class="navbar-brand fw-bold ms-3 ms-md-0" href="/">{{title}}</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#MainMenu"
                     aria-controls="MainMenu" aria-label="Toggle navigation">
                     <i class="ri-menu-fill"></i>
                 </button>
 
-                <div class="offcanvas-md offcanvas-end flex-grow-1 footing" tabindex="-1" id="MainMenu"
-                    aria-labelledby="LabelMainMenu" data-bs-scroll="true">
+                <div class="offcanvas-md offcanvas-end flex-grow-1 footing border border-0" tabindex="-1" id="MainMenu"
+                    aria-labelledby="LabelMainMenu" data-bs-scroll="true" data-bs-backdrop="false">
                     <div class="offcanvas-header px-4 pb-0">
-                        <h5 class="offcanvas-title" id="LabelMainMenu">More Options</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                            aria-label="Close" data-bs-target="#MainMenu"></button>
+                        <h5 class="offcanvas-title" id="LabelMainMenu">{{more}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                            data-bs-target="#MainMenu"></button>
                     </div>
 
                     <div class="offcanvas-body p-4 pt-0 p-md-0">
                         <hr class="d-md-none text-white-50">
                         <ul class="navbar-nav ms-auto me-auto mb-2 mb-md-0">
                             <li class="nav-item">
-                                <a class="nav-link py-2 px-0 px-lg-2" href="/docs"><i class="ri-article-line me-1"></i>Docs</a>
+                                <a class="nav-link py-2 px-0 px-lg-2" href="/docs"><i
+                                        class="ri-article-line me-1"></i>{{docs}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link py-2 px-0 px-md-2" href="/about"><i class="ri-information-2-line me-1"></i>About this</a>
+                                <a class="nav-link py-2 px-0 px-md-2" href="/about"><i
+                                        class="ri-information-2-line me-1"></i>{{about}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link py-2 px-0 px-md-2" href="/support"><i class="ri-hand-heart-line me-1"></i>Support</a>
+                                <a class="nav-link py-2 px-0 px-md-2" href="/support"><i
+                                        class="ri-hand-heart-line me-1"></i>{{support}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link py-2 px-0 px-md-2" href="/gql"><i class="ri-terminal-box-line me-1"></i>GraphQL Console</a>
+                                <a class="nav-link py-2 px-0 px-md-2" href="/gql"><i
+                                        class="ri-terminal-box-line me-1"></i>{{graphql}}</a>
                             </li>
                         </ul>
 
@@ -61,24 +65,45 @@
                             <li class="nav-item col-6 col-md-auto">
                                 <a class="nav-link active py-2 px-0 px-md-2" href="#" target="_blank" rel="noopener">
                                     <i class="ri-github-line"></i>
-                                    <small class="d-md-none ms-2">View in github</small>
+                                    <small class="d-md-none ms-2">{{github}}</small>
                                 </a>
                             </li>
                             <li class="nav-item col-6 col-md-auto">
                                 <a class="nav-link active py-2 px-0 px-md-2" href="#" target="_blank" rel="noopener">
                                     <i class="ri-git-fork-line"></i>
-                                    <small class="d-md-none ms-2">Fork me</small>
+                                    <small class="d-md-none ms-2">{{fork}}</small>
                                 </a>
                             </li>
                             <li class="nav-item col-6 col-md-auto">
                                 <a class="nav-link active py-2 px-0 px-md-2" href="#" target="_blank" rel="noopener">
                                     <i class="ri-git-commit-line"></i>
-                                    <small class="d-md-none ms-2">Issues</small>
+                                    <small class="d-md-none ms-2">{{issue}}</small>
                                 </a>
+                            </li>
+
+                            <li class="nav-item py-2 py-lg-1 col-12 col-md-auto">
+                                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                                <hr class="d-lg-none my-2 text-white-50">
+                            </li>
+                            <li class="nav-item dropdown dropstart col-6 col-md-auto">
+                                <a class="nav-link dropdown-toggle" href="#" id="translateDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="ri-translate-2"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="translateDropdown">
+                                    <li><span class="dropdown-item">Action</span></li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li><a class="dropdown-item" href="/api/change-language?lang=en"><i class="flag flag-united-states me-2"></i>English</a></li>
+                                    <li><a class="dropdown-item" href="/api/change-language?lang=es"><i class="flag flag-spain me-2"></i>Español</a></li>
+                                    <li><a class="dropdown-item" href="/api/change-language?lang=jp"><i class="flag flag-japan me-2"></i>日本語</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
+                {{/with}}
             </div>
         </nav>
     </header>
@@ -89,14 +114,16 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="mx-4 mx-lg-4 my-3 lexend-deca-font sticky-md-bottom">
+    <footer class="mx-2 mx-md-3 mx-lg-4 mt-3 lexend-deca-font sticky-bottom">
         <div class="rounded shadow p-3 footing d-flex flex-wrap justify-content-between align-items-center py-3 mt-4">
-            <p class="col-md-3 mb-0 lh-sm">&copy; 2022 - Created by Hector Joel Luna</p>
-            <a href="/" class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 my-3 my-md-0 me-md-auto link-dark text-decoration-none text-center text-md-start">
-                <img src="/IdolAPI.png" width="100px" class="img-fluid imagefooter"/>
+            {{#with footer}}
+            <p class="col-md-3 mb-0 lh-sm">&copy; 2022 - {{about}}</p>
+            <a href="/"
+                class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 my-3 my-md-0 me-md-auto link-dark text-decoration-none text-center text-md-start">
+                <img src="/IdolAPI.png" width="100px" class="img-fluid imagefooter d-none d-md-block" />
             </a>
             <ul class="nav col-md-6 justify-content-end lh-1">
-                <li class="nav-item disabled"><a class="nav-link px-2" aria-disabled="true">Follow me:</a></li>
+                <li class="nav-item disabled"><a class="nav-link px-2" aria-disabled="true">{{follow}}:</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-github-line"></i></a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-instagram-line"></i></a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-twitter-x-line"></i></a></li>
@@ -104,6 +131,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-google-line"></i></a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-microsoft-line"></i></a></li>
             </ul>
+            {{/with}}
         </div>
     </footer>
 

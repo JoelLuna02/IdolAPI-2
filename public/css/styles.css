@@ -41,6 +41,10 @@ pre code {
 	width: 270px;
 }
 
+#MainMenu {
+	width: 300px;
+}
+
 .outfit-font { font-family: "Outfit", sans-serif; font-optical-sizing: auto; font-style: normal; }
 .lexend-deca-font { font-family: "Lexend Deca", sans-serif; font-optical-sizing: auto; font-style: normal; }
 .dm-mono-light { font-family: "DM Mono", monospace; font-weight: 300; font-style: normal; }
@@ -117,7 +121,7 @@ pre {
 		visibility: visible !important;
 		width: 240px;
 		top: 60px;
-		height: calc(100% - 190px);
+		height: calc(100% - 170px);
 		left: 0px;
 	}
 	.offcanvas-collapse {
