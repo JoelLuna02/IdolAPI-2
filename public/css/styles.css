@@ -4,22 +4,13 @@
 	color-scheme: light dark;
 }
 
-.footing {
-	background-color: #1a1b1c;
-	color: #f1f2f3;
-}
-.footing a.nav-link {
-	color: #d3d4d5;
-}
-.footing a.nav-link:hover {
-	color: #ffffff;
-}
-.footing h5.offcanvas-title {
-	color: #d3d4d5;
-}
-.footing button.btn-close {
-	color: #d3d4d5;
-}
+.footing { background-color: #1a1b1c; color: #f1f2f3; }
+.footing a.navbar-brand { color: #979fa6; }
+.footing a.navbar-brand:hover { color: rgb(255, 255, 255); font-weight: 500; }
+.footing a.nav-link { color: #d3d4d5; }
+.footing a.nav-link:hover { color: #ffffff; }
+.footing h5.offcanvas-title { color: #d3d4d5; }
+.footing button.btn-close { color: #d3d4d5; }
 
 body {
 	font-synthesis: none;
@@ -53,34 +44,21 @@ pre code {
 .dm-mono-regular-italic { font-family: "DM Mono", monospace; font-weight: 400; font-style: italic; }
 .dm-mono-medium-italic { font-family: "DM Mono", monospace; font-weight: 500; font-style: italic; }
 
-.imagefooter {
-	filter: invert(100%);
-}
+.imagefooter { filter: invert(100%); }
 
 @media (prefers-color-scheme: light) {
 	body {
 		background-color: #ffffff;
 		color: #213547;
 	}
-	.footing {
-		background-color: #f4f5f6;
-		color: #213547;
-	}
-	.footing a.nav-link {
-		color: #2d4457;
-	}
-	.footing a.nav-link:hover {
-		color: black; font-weight: 500;
-	}
-	.footing button.btn-close {
-		color: hsl(200, 6%, 10%);
-	}
-	.footing h5.offcanvas-title {
-		color: hsl(200, 6%, 10%);
-	}	
-	.imagefooter {
-		filter: invert(0%);
-	}
+	.footing { background-color: #f4f5f6; color: #213547; }
+	.footing a.nav-link { color: #2d4457; }
+	.footing a.navbar-brand { color: #363d44; }
+	.footing a.navbar-brand:hover { color: black; font-weight: 500; }
+	.footing a.nav-link:hover { color: black; font-weight: 500; }
+	.footing button.btn-close { color: hsl(200, 6%, 10%); }
+	.footing h5.offcanvas-title { color: hsl(200, 6%, 10%); }	
+	.imagefooter { filter: invert(0%); }
 }
 
 pre {
