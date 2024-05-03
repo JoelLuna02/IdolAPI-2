@@ -9,7 +9,9 @@ import * as cheerio from "cheerio";
 import fs from "fs";
 
 import schema from "./graphql/schemas";
+import { AllowCORS } from "./origins";
 import { myCustomformat } from "./morgan";
+import i18n from "./locales/i18n";
 import vtuber_routes from "./routes/vtuber.routes";
 import hashtag_routes from "./routes/hashtag.routes";
 import social_routes from "./routes/social.routes";
@@ -39,13 +41,17 @@ function getHeaders(data) {
  * This function will display an error message if the server fails to run, or mongoose initialization fails.
  * @returns {Promise<void>} */
 async function init_server() {
+	app.use(i18n.init);
 	app.use(morgan(myCustomformat));
 	app.use(express.static("./public"));
 	app.engine("handlebars", hbs.engine);
 	app.set("view engine", "handlebars");
 	app.set("views", "./views");
 
+	AllowCORS(app, ["http://localhost:5173"]);
+
 	app.all("/api/graphql", createHandler({ schema })); // Implement GraphQL handler
+
 	app.use("/api/hashtag", hashtag_routes);
 	app.use("/api/social", social_routes);
 	app.use("/api/vtuber", vtuber_routes);
@@ -58,30 +64,58 @@ async function init_server() {
 			}),
 		);
 	});
+
+	app.get("/api/change-language", (req, res) => {
+		const { lang } = req.query;
+		if (lang) {
+			res.cookie("lang", lang, { maxAge: 900000, httpOnly: true });
+		}
+		res.redirect(req.headers.referer || "/");
+	});
+
 	app.get("/", (_req, res) => {
-		return res.render("index", { title: "IdolAPI" });
+		const navbar = res.__("navbar");
+		const footer = res.__("footer");
+		return res.render("index", { title: res.__("mainTitle"), navbar, footer });
 	});
 
 	app.get("/docs", (_req, res) => {
+		const navbar = res.__("navbar");
+		const footer = res.__("footer");
 		const markdown = fs.readFileSync("./views/markdown/documentation.mdx", "utf-8");
 		const html = marked(markdown);
 		const headers = getHeaders(markdown);
-		return res.render("docs", { title: "Documentation | IdolAPI", docs: html, headers });
+		return res.render("docs", {
+			title: res.__("docsTitle"),
+			docs: html,
+			headers,
+			navbar,
+			footer,
+		});
 	});
 
 	app.get("/about", (_req, res) => {
+		const navbar = res.__("navbar");
+		const footer = res.__("footer");
 		const markdown = fs.readFileSync("./views/markdown/about.mdx", "utf-8");
 		const html = marked(markdown);
-		return res.render("about", { title: "About this project | IdolAPI", docs: html });
+		return res.render("about", {
+			title: res.__("aboutTitle"),
+			docs: html,
+			navbar,
+			footer,
+		});
 	});
 	app.get("/support", (_req, res) => {
+		const navbar = res.__("navbar");
+		const footer = res.__("footer");
 		const markdown = fs.readFileSync("./views/markdown/support.mdx", "utf-8");
 		const html = marked(markdown);
-		return res.render("support", { title: "Support us | IdolAPI", docs: html });
+		return res.render("support", { title: res.__("supportTitle"), docs: html, navbar, footer });
 	});
 
 	app.use((req, res, next) => {
-		return res.status(404).render("notfound", { title: "Page not found!" });
+		return res.status(404).render("notfound", { title: res.__("notFoundTitle") });
 	});
 	app.listen(port, () => {
 		console.log(`\n Server listening on http://localhost:${port}\n`);
