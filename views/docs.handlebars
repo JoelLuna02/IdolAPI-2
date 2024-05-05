@@ -1,14 +1,4 @@
-<style>
-    main {
-        padding-left: 270px;
-    }
-
-    @media (max-width: 767px) {
-        main {
-            padding-left: 0px;
-        }
-    }
-</style>
+<style> main { padding-left: 270px; } @media (max-width: 767px) { main { padding-left: 0px; } }</style>
 <div class="container">
     <div class="bg-image rounded-5 shadow m-4">
         <img src="/portrait2.png" class="fix img-fluid v-100 fix2" id="fit2" />
@@ -38,17 +28,17 @@
         <div class="offcanvas offcanvas-start border-0 shadow-0 overflow-y-auto rounded-5 p-4 m-0 m-md-4 footing lexend-deca-font"
             tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-scroll="true"
             data-bs-backdrop="false">
-            <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                 <span class="fs-4 fw-bold">Index</span>
                 <button type="button" class="btn-close d-md-none ms-auto" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
             <hr>
             <div id="index">
-                <ul class="nav nav-pills flex-column mb-auto  lh-1">
+                <ul class="flex-column mb-auto nav">
                     {{#each headers}}
-                    <li class="nav-item lh-1">
-                        <a href="#{{this.id}}" class="nav-link lh-1">{{this.text}}</a>
+                    <li class="bg-transparent nav-item">
+                        <a href="#{{this.id}}" class="nav-link">{{this.text}}</a>
                     </li>
                     {{/each}}
                 </ul>

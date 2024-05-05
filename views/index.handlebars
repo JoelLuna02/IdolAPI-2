@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-4 col-lg-4 col-xl-4 align-self-center">
             <h2 class="fw-bold">Getting started:</h2><hr>
-            <div class="alert alert-light p-2 pt-3" role="alert">
+            <div class="alert footing p-2 pt-3" role="alert">
                 <div class="hstack gap-2">
                     <div class="ms-2 ms-3">
                         <h5>First steps</h5>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-light p-2 pt-3" role="alert">
+            <div class="alert footing p-2 pt-3" role="alert">
                 <div class="hstack gap-2">
                     <div class="ms-2 me-2">
                         <h5>GraphQL</h5>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-light p-2 pt-3" role="alert">
+            <div class="alert footing p-2 pt-3" role="alert">
                 <div class="hstack gap-2">
                     <div class="ms-2">
                         <h5>Fair use</h5>
@@ -63,4 +63,98 @@
         </div>
     </div>
     <div class="col-xl-1"></div>
+</div>
+
+<div class="background2">
+    <div class="p-4 p-md-4 p-lg-5">
+        <div class="divider d-flex align-items-center my-4">
+            <h1 class="text-center fw-bold mx-3 mb-0 outfit-font">Idol VTubers</h1>
+        </div>
+        <div class="alert alert-warning mx-3 mx-md-5 outfit-font" role="alert">
+            <h5 class="fw-bold">Partial translation warning</h5><hr/>
+            <p class="lh-sm">
+                We want to inform you that some sections of the website are not fully translated because
+                certain data obtained from our API is in English. We recommend that you use your browser's
+                translator for a better experience. Thank you for your understanding and patience, and we
+                apologize for the circumstance.
+            </p>
+        </div>
+        <div class="row gx-0 gx-md-3 gx-lg-0 gx-xl-3">
+            <div class="col-12 col-xl-4">
+                <div class="card footing mb-3 mb-xl-0">
+                    <div class="card-body lexend-deca-font">
+                        <h3>Full List of vtubers</h3>
+                        <div class="row">
+                        <div class="col-12 col-md-4 col-xl-12">
+                        <h6 class="pt-3"><i class="flag flag-israel"></i><span class="me-2 fw-bold">[Dissolved]</span>Hebrew branch:</h6><hr/>
+                        {{#each vtubers}}
+                        {{#if (equals this.branch "HE")}}
+                            <div class="hstack gap-3 lh-sm" style="font-size: 0.85rem;">
+                                <span class="me-0">{{this.emoji}}</span> | <span class="ms-0">{{this.fullname}}</span>
+                                <span class="ms-auto">{{this.unit}}</span>
+                            </div>
+                        {{/if}}
+                        {{/each}}
+                        </div>
+                        <div class="col-12 col-md-4 col-xl-12">
+                        <h6 class="pt-3"><i class="flag flag-united-kingdom"></i>English branch:</h6><hr/>
+                        {{#each vtubers}}
+                        {{#if (equals this.branch "EN")}}
+                            <div class="hstack gap-3 lh-sm" style="font-size: 0.85rem;">
+                                <span class="me-0">{{this.emoji}}</span> | <span class="ms-0">{{this.fullname}}</span>
+                                <span class="ms-auto">{{this.unit}}</span>
+                            </div>
+                        {{/if}}
+                        {{/each}}
+                        </div>
+                        <div class="col-12 col-md-4 col-xl-12">
+                        <h6 class="pt-3"><i class="flag flag-spain"></i>Spanish branch:</h6><hr/>
+                        {{#each vtubers}}
+                        {{#if (equals this.branch "ES")}}
+                            <div class="hstack gap-3 lh-sm" style="font-size: 0.85rem;">
+                                <span class="me-0">{{this.emoji}}</span> | <span class="ms-0">{{this.fullname}}</span>
+                                <span class="ms-auto">{{this.unit}}</span>
+                            </div>
+                        {{/if}}
+                        {{/each}}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12  col-xl-8">
+                <div class="row g-1">
+                {{#each random}}
+                <div class="col-md-6">
+                <div class="card mx-3 mx-md-1 mx-lg-4 mx-xl-2 footing my-3 my-lg-2 outfit-font">
+                    <div class="row g-0">
+                         <div class="col-sm-6 col-md-5 text-center">
+                            <img src="/{{this.avatar}}" width="320" height="320" class="v-100 h-100 img-fluid rounded-start" id="fit2" />
+                        </div>
+                        <div class="col-sm-6 col-md-7">
+                            <div class="card-body">
+                                <a class="card-title fw-bold fs-5 lh-sm" href="/api/vtuber/{{this._id}}">{{this.emoji}} | {{this.fullname}}</a>
+                                {{#if (equals this.quote null)}}
+                                    <p><strong>No description</strong></p>
+                                {{else}}
+                                    <p>{{this.quote}}</p>
+                                {{/if}}
+                                <p style="font-size: 0.9rem">
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Height:</span><span class="ms-auto">{{this.height}}m</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Gender:</span><span class="ms-auto">{{this.gender}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Fanname:</span><span class="ms-auto">{{this.fanname}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Zodiac:</span><span class="ms-auto">{{this.zodiac}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Birthday:</span><span class="ms-auto">{{this.birthday}}</span></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

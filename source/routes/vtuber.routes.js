@@ -9,7 +9,7 @@ vtuber_routes.get("/", async (req, res) => {
 	await connectDB();
 	const vtubers = await VTuber.find()
 		.select(
-			"fullname fanname quote branch unit emoji youtube status gender likes dislikes age birthday zodiac height",
+			"fullname fanname quote nicknames branch unit emoji avatar youtube status gender likes dislikes age birthday zodiac height",
 		)
 		.populate("hashtag", "-_id general stream fanart memes")
 		.populate("socialNetworks", "_id application accounturl");

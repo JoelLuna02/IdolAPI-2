@@ -5,7 +5,6 @@ import { ruruHTML } from "ruru/server";
 import morgan from "morgan";
 import { create } from "express-handlebars";
 import { marked } from "marked";
-import * as cheerio from "cheerio";
 import fs from "fs";
 
 import schema from "./graphql/schemas";
@@ -15,9 +14,18 @@ import i18n from "./locales/i18n";
 import vtuber_routes from "./routes/vtuber.routes";
 import hashtag_routes from "./routes/hashtag.routes";
 import social_routes from "./routes/social.routes";
+import assets_routes from "./routes/assets.routes";
+import connectDB from "./database";
+import VTuber from "./models/VTuber";
 
 const app = express();
-const hbs = create({});
+const hbs = create({
+	helpers: {
+		equals: function (variableOne, variableTwo) {
+			return variableOne === variableTwo;
+		},
+	},
+});
 const port = 3000;
 
 function getHeaders(data) {
@@ -34,6 +42,18 @@ function getHeaders(data) {
 	return headers;
 }
 
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffleArray(array, numb) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = getRandomInt(0, i);
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array.slice(0, numb);
+}
+
 /** ## Server initializer
  * This function is responsible for running the Express.js server. You can configure routes, and middlewares,
  * whether to create a CRUD system, track the routes you visit, configure request bodies, etc.
@@ -48,13 +68,14 @@ async function init_server() {
 	app.set("view engine", "handlebars");
 	app.set("views", "./views");
 
-	AllowCORS(app, ["http://localhost:5173"]);
+	AllowCORS(app, ["http://localhost:5173", "http://localhost:3000"]);
 
 	app.all("/api/graphql", createHandler({ schema })); // Implement GraphQL handler
 
 	app.use("/api/hashtag", hashtag_routes);
 	app.use("/api/social", social_routes);
 	app.use("/api/vtuber", vtuber_routes);
+	app.use("/api/assets", assets_routes);
 
 	app.get("/gql", (_req, res) => {
 		res.type("html");
@@ -73,10 +94,20 @@ async function init_server() {
 		res.redirect(req.headers.referer || "/");
 	});
 
-	app.get("/", (_req, res) => {
+	app.get("/", async (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
-		return res.render("index", { title: res.__("mainTitle"), navbar, footer });
+		await connectDB();
+		const vtubers = await VTuber.find();
+		const random = shuffleArray(vtubers, 6);
+		return res.render("index", {
+			title: res.__("mainTitle"),
+			navbar,
+			footer,
+			lang: req.headers["accept-language"],
+			vtubers: JSON.parse(JSON.stringify(vtubers)),
+			random: JSON.parse(JSON.stringify(random)),
+		});
 	});
 
 	app.get("/docs", (_req, res) => {

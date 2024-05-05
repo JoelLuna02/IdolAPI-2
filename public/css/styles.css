@@ -4,13 +4,15 @@
 	color-scheme: light dark;
 }
 
-.footing { background-color: #1a1b1c; color: #f1f2f3; }
+.footing { background-color: rgba(26, 27, 28, 1); color: #f1f2f3; }
 .footing a.navbar-brand { color: #979fa6; }
 .footing a.navbar-brand:hover { color: rgb(255, 255, 255); font-weight: 500; }
 .footing a.nav-link { color: #d3d4d5; }
+.footing a:hover { color: white; }
 .footing a.nav-link:hover { color: #ffffff; }
 .footing h5.offcanvas-title { color: #d3d4d5; }
 .footing button.btn-close { color: #d3d4d5; }
+.background2 { background-color: #1f2022; color: #f1f2f3; }
 
 body {
 	font-synthesis: none;
@@ -51,13 +53,16 @@ pre code {
 		background-color: #ffffff;
 		color: #213547;
 	}
-	.footing { background-color: #f4f5f6; color: #213547; }
+	.footing { background-color: rgba(244, 245, 246, 1); color: #213547; }
+	.footing a { color: #3a4955; }
+	.footing a:hover { color: black; font-weight: 500; }
 	.footing a.nav-link { color: #2d4457; }
 	.footing a.navbar-brand { color: #363d44; }
 	.footing a.navbar-brand:hover { color: black; font-weight: 500; }
 	.footing a.nav-link:hover { color: black; font-weight: 500; }
 	.footing button.btn-close { color: hsl(200, 6%, 10%); }
-	.footing h5.offcanvas-title { color: hsl(200, 6%, 10%); }	
+	.footing h5.offcanvas-title { color: hsl(200, 6%, 10%); }
+	.background2 { background-color: #f1f2f3; color: #1a2027; }
 	.imagefooter { filter: invert(0%); }
 }
 
@@ -84,7 +89,7 @@ pre {
     content: "";
     flex: 1;
     height: 1px;
-    background: #aaa;
+    background: #969696;
 }
 
 @media (min-width: 768px) {
@@ -96,11 +101,14 @@ pre {
 	}
 	#offcanvasExample {
 		transform: none;
-		visibility: visible !important;
+		visibility: visible;
 		width: 240px;
 		top: 60px;
 		height: calc(100% - 170px);
 		left: 0px;
+	}
+	.footing .navbar div.offcanvas-md {
+		background: transparent;
 	}
 	.offcanvas-collapse {
 		display: none !important;

@@ -7,18 +7,20 @@ type VTuber {
 	fullname: String
 	fanname: String
 	quote: String
+	nicknames: [String!]
 	branch: String
 	unit: String
 	emoji: String
 	youtube: String
 	status: String
+	avatar: String
 	gender: String
 	likes: [String!]
 	dislikes: [String!]
 	age: Int
 	birthday: String
 	zodiac: String
-	height: String
+	height: Float
 	hashtag: Hashtag
 	socialNetworks: [SocialNetwork!]
 }
@@ -64,18 +66,20 @@ type Mutation {
 		fullname: String
 		fanname: String
 		quote: String
+		nicknames: [String!]
 		branch: String
 		unit: String
 		emoji: String
 		youtube: String
 		status: String
+		avatar: String
 		gender: String
 		likes: [String!]
 		dislikes: [String!]
 		age: Int
 		birthday: String
 		zodiac: String
-		height: String
+		height: Float
 	): VTuber!
 	addHashtag(general: String, stream: String, fanart: String, memes: String): Hashtag!
 	addSocialNetwork(application: String, accounturl: String): SocialNetwork!
@@ -87,10 +91,12 @@ type Mutation {
 		fullname: String
 		fanname: String
 		quote: String
+		nicknames: [String!]
 		branch: String
 		unit: String
 		emoji: String
 		youtube: String
+		avatar: String
 		status: String
 		gender: String
 		likes: [String!]
@@ -98,6 +104,6 @@ type Mutation {
 		age: Int
 		birthday: String
 		zodiac: String
-		height: String
+		height: Float
 	): Boolean
 }

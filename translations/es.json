@@ -1,22 +1,22 @@
 {
-    "mainTitle": "IdolAPI",
-    "docsTitle": "Documentación | IdolAPI",
-    "aboutTitle": "Acerca de | IdolAPI",
-    "supportTitle": "Apóyanos | IdolAPI",
-    "notFoundTitle": "Página no encontrada | IdolAPI",
-    "navbar": {
-        "title": "IdolAPI",
-        "more": "Más opciones",
-        "docs": "Docs",
-        "about": "Acerca de",
-        "support": "Apoyo",
-        "graphql": "Consola de GraphQL",
-        "github": "Ver en GitHub",
-        "fork": "Bifurcar",
-        "issue": "Consultas"
-    },
-    "footer": {
-        "about": "Desarrollado por Hector Joel Luna",
-        "follow": "Sígueme"
-    }
+	"mainTitle": "IdolAPI",
+	"docsTitle": "Documentación | IdolAPI",
+	"aboutTitle": "Acerca de | IdolAPI",
+	"supportTitle": "Apóyanos | IdolAPI",
+	"notFoundTitle": "Página no encontrada | IdolAPI",
+	"navbar": {
+		"title": "IdolAPI",
+		"more": "Más opciones",
+		"docs": "Docs",
+		"about": "Acerca de",
+		"support": "Apoyo",
+		"graphql": "Consola de GraphQL",
+		"github": "Ver en GitHub",
+		"fork": "Bifurcar",
+		"issue": "Consultas"
+	},
+	"footer": {
+		"about": "Desarrollado por Hector Joel Luna",
+		"follow": "Sígueme"
+	}
 }

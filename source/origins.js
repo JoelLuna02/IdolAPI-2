@@ -12,7 +12,7 @@ export function AllowCORS(app, origins) {
 			origin: function (origin, callback) {
 				if (!origin) return callback(null, true);
 				if (origins.indexOf(origin) === -1) {
-					let msg = "Access to the Origin is not permitted on this site.";
+					let msg = `Access to the Origin: ${origin}, is not permitted on this site.`;
 					return callback(new Error(msg), false);
 				}
 				return callback(null, true);
