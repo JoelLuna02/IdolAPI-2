@@ -4,6 +4,10 @@
 	"aboutTitle": "About this | IdolAPI",
 	"supportTitle": "Support us | IdolAPI",
 	"notFoundTitle": "Page not found | IdolAPI",
+	"warn": {
+		"title": "Partial translation warning",
+		"desc": "We want to inform you that some sections of the website are not fully translated because certain data obtained from our API is in English. We recommend that you use your browser's translator for a better experience. Thank you for your understanding and patience, and we apologize for the circumstance."
+	},
 	"navbar": {
 		"title": "IdolAPI",
 		"more": "More options",
