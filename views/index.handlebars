@@ -70,15 +70,14 @@
         <div class="divider d-flex align-items-center my-4">
             <h1 class="text-center fw-bold mx-3 mb-0 outfit-font">Idol VTubers</h1>
         </div>
+        {{#with warning}}
+        {{#if (notEquals lang "en")}}
         <div class="alert alert-warning mx-3 mx-md-5 outfit-font" role="alert">
-            <h5 class="fw-bold">Partial translation warning</h5><hr/>
-            <p class="lh-sm">
-                We want to inform you that some sections of the website are not fully translated because
-                certain data obtained from our API is in English. We recommend that you use your browser's
-                translator for a better experience. Thank you for your understanding and patience, and we
-                apologize for the circumstance.
-            </p>
+            <h5 class="fw-bold">{{title}}</h5><hr/>
+            <p class="lh-sm">{{desc}}</p>
         </div>
+        {{/if}}
+        {{/with}}
         <div class="row gx-0 gx-md-3 gx-lg-0 gx-xl-3">
             <div class="col-12 col-xl-4">
                 <div class="card footing mb-3 mb-xl-0">
