@@ -21,8 +21,11 @@ import VTuber from "./models/VTuber";
 const app = express();
 const hbs = create({
 	helpers: {
-		equals: function (variableOne, variableTwo) {
-			return variableOne === variableTwo;
+		equals: function (one, two) {
+			return one === two;
+		},
+		notEquals: function (one, two) {
+			return one !== two;
 		},
 	},
 });
@@ -97,6 +100,7 @@ async function init_server() {
 	app.get("/", async (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
+		const warning = res.__("warn");
 		await connectDB();
 		const vtubers = await VTuber.find();
 		const random = shuffleArray(vtubers, 6);
@@ -104,7 +108,8 @@ async function init_server() {
 			title: res.__("mainTitle"),
 			navbar,
 			footer,
-			lang: req.headers["accept-language"],
+			warning,
+			lang: req.getLocale(),
 			vtubers: JSON.parse(JSON.stringify(vtubers)),
 			random: JSON.parse(JSON.stringify(random)),
 		});
@@ -125,7 +130,7 @@ async function init_server() {
 		});
 	});
 
-	app.get("/about", (_req, res) => {
+	app.get("/about", (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
 		const markdown = fs.readFileSync("./views/markdown/about.mdx", "utf-8");
