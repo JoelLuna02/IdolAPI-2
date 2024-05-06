@@ -17,6 +17,7 @@ import social_routes from "./routes/social.routes";
 import assets_routes from "./routes/assets.routes";
 import connectDB from "./database";
 import VTuber from "./models/VTuber";
+import auth_router from "./routes/auth.routes";
 
 const app = express();
 const hbs = create({
@@ -27,22 +28,32 @@ const hbs = create({
 		notEquals: function (one, two) {
 			return one !== two;
 		},
+		greaterThan: function (one, two) {
+			return one > two;
+		},
+		lessThan: function (one, two) {
+			return one < two;
+		},
 	},
 });
+
+/** @type {Number} The server port */
 const port = 3000;
 
-function getHeaders(data) {
-	const headers = [];
-	const lines = data.split("\n");
-
-	lines.forEach((line) => {
+/** @param {string} markdown */
+function generateIndex(markdown) {
+	const lines = markdown.split("\n");
+	const index = [];
+	lines.forEach((line, i) => {
 		if (line.startsWith("#")) {
-			const header = line.replace(/#/g, "").trim();
-			const id = header.toLowerCase().replace(/[^\w]+/g, "-");
-			headers.push({ text: header, id: id });
+			const level = line.match(/^#+/)[0].length;
+			const title = line.replace(/^#+/, "").trim();
+			const id = title.replace(/\s+/g, "-").toLowerCase();
+			index.push({ level, title, id });
+			lines[i] = `${line} <a id="${id}"></a>`;
 		}
 	});
-	return headers;
+	return { index, markdown: lines.join("\n") };
 }
 
 function getRandomInt(min, max) {
@@ -79,6 +90,7 @@ async function init_server() {
 	app.use("/api/social", social_routes);
 	app.use("/api/vtuber", vtuber_routes);
 	app.use("/api/assets", assets_routes);
+	app.use("/api/auth", auth_router);
 
 	app.get("/gql", (_req, res) => {
 		res.type("html");
@@ -118,13 +130,13 @@ async function init_server() {
 	app.get("/docs", (_req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
-		const markdown = fs.readFileSync("./views/markdown/documentation.mdx", "utf-8");
+		const markd = fs.readFileSync("./views/markdown/documentation.mdx", "utf-8");
+		const { markdown, index } = generateIndex(markd);
 		const html = marked(markdown);
-		const headers = getHeaders(markdown);
 		return res.render("docs", {
 			title: res.__("docsTitle"),
 			docs: html,
-			headers,
+			headers: index,
 			navbar,
 			footer,
 		});
