@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-    <div class="px-4 lh-sm">
-        <div class="offcanvas offcanvas-start border-0 shadow-0 overflow-y-auto rounded-5 p-4 m-0 m-md-4 footing lexend-deca-font"
+    <div class="px-4">
+        <div class="offcanvas offcanvas-start border-0 shadow-sm rounded-5 p-4 m-0 m-md-4 footing lexend-deca-font"
             tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-scroll="true"
             data-bs-backdrop="false">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
@@ -33,12 +33,19 @@
                 <button type="button" class="btn-close d-md-none ms-auto" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <hr>
-            <div id="index">
-                <ul class="flex-column mb-auto nav">
+            <div id="index" class="overflow-y-auto">
+                <ul class="flex-column mb-auto" style="padding-left: 0px; margin-bottom: 10px;">
                     {{#each headers}}
                     <li class="bg-transparent nav-item">
-                        <a href="#{{this.id}}" class="nav-link">{{this.text}}</a>
+                        {{#if (greaterThan this.level 1)}}
+                        <ul style="padding-left: 0px; " class="lh-sm">
+                            <li>
+                                <a href="#{{this.id}}" class="nav-link">{{this.title}}</a>
+                            </li>
+                        </ul>
+                        {{else}}
+                        <a href="#{{this.id}}" class="nav-link fs-5 fw-bold pt-3">{{this.title}}</a>
+                        {{/if}}
                     </li>
                     {{/each}}
                 </ul>
@@ -46,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col-lg-1 col-xl-2"></div>
-            <div class="col-lg-10 col-xl-8">
+            <div class="col-lg-10 col-xl-8 lh-sm">
                 {{{ docs }}}
             </div>
             <div class="col-lg-1 col-xl-2"></div>

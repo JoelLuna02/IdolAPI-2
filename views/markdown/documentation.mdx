@@ -1,8 +1,34 @@
 ---
 
+# Introduction:
+
 In this section you will be able to see the functionality of each and every one of the available
 resources. To exemplify its operation, we use JavaScript for its consumption. You can
 use any other programming language or client to return data.
+
+
+## Getting Started
+![Node.js](https://img.shields.io/badge/Node.js-v18.16.5-brightgreen.svg) ![npm](https://img.shields.io/badge/npm-v9.5.1-blue.svg)
+
+You can configure locally by following these steps:
+
+- Install the node.js dependencies:
+    ```bash
+    npm i --save
+    ```
+- Then define the following variables in your .env.local file:
+    ```bash
+    MONGODB_URI="mongodb://<Your-Mongodb-Connection>"
+    MONGODB_NAME="<Your-Database-name>"
+    SECRET_KEY="YOUR-SECRET-KEY"
+    ```
+- And finally, run the server in development mode:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+
 
 ## Base url
 
@@ -64,7 +90,7 @@ You can see more query functions in our GraphQL console. If you are new to this,
 
 - - -
 
-## Models
+# Models
 
 We have defined some models with their respective schemes and relationships:
 

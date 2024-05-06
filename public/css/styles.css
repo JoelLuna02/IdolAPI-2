@@ -40,6 +40,10 @@ tr:hover {
 	border-radius: 100px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .footing { background-color: rgba(26, 27, 28, 1); color: #f1f2f3; }
 .footing a.navbar-brand { color: #979fa6; }
 .footing a.navbar-brand:hover { color: rgb(255, 255, 255); font-weight: 500; }
