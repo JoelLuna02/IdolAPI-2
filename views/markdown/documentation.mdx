@@ -7,43 +7,95 @@ use any other programming language or client to return data.
 ## Base url
 
 We have defined the base url as [`/api`](/api), which contains information about the available API resources.
-The requests are made with the `GET` method and its response will return information in `json` format.
+The requests are made with the **GET** method and its response will return information in **json** format.
 
-Let's try the request via JavaScript:
-
-```javascript
-fetch('https://idolapi.vercel.app/api')
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-```
-
-**The output it will return is this:**
+When making a request to the url, the response will return the following:
 
 ```json
 {
-    "vtuber": "/api/vtuber",
-    "agency": "/api/agency",
-    "assets": "/api/assets",
-    "auth": "/api/auth"
+  "vtuber": "/api/vtuber",
+  "hashtag": "/api/hashtag",
+  "social": "/api/social",
+  "assets": "/api/assets",
+  "auth": "/api/auth"
+}
+```
+- - -
+## GraphQL
+
+You can access the graphql console from [here](/gql)
+
+Let's see a small example of a GraphQL query:
+```graphql
+query {
+
+  # Full List of vtubers
+  vtuber: {
+    _id fullname fanname branch unit
+  }
+
+  # Get VTuber by ID
+  getVTuber(ID: "An VTuber ID") {
+    _id fullname fanname branch unit
+  }
 }
 ```
 
-Next, we are going to explain the function of each of the resources:
+The result that it returns is this:
+```json
+{
+  "data": {
+    "vtuber": [
+      {
+        "_id": "# The Vtuber's ID",
+        "fullname": "# The VTuber's Full Name",
+      },
+      // ...
+    ]
+  }
+}
+```
 
-- [vtuber](/api/vtuber): This resource is used to obtain a list of all Vtubers
-- [agency](/api/agency): This resource is used to obtain detailed information from the Idol Agency.
-- [assets](/api/assets): This resource is used to obtain a list of all the images stored in the database.
-- [auth](/api/auth): This resource is used to register and log in to manage protected resources.
+You can see more query functions in our GraphQL console. If you are new to this, you can go to the GraphQL documentation [here](https://graphql.org/learn/).
+
+<div class="alert alert-warning" role="alert">
+<strong>Note</strong>: Mutation functions are only available in development mode.
+</div>
+
+- - -
 
 ## Models
----
 
-### Vtuber
+We have defined some models with their respective schemes and relationships:
 
-### Hashtag
+### VTuber
 
-### Social Media
+VTuber Model schema:
 
-### Songs
+| Attribute | Type | Description |
+| --- | --- | --- |
+| _id | ObjectID | The ID of a VTuber |
+| fullname | string | The full name of a VTuber |
+| fanname | string | The fan name of a VTuber |
+| quote | string - null | A quote of a VTuber |
+| nicknames | string[] - null | The nicknames of a VTuber |
+| branch | string | The branch of a VTuber. Default: "EN" |
+| unit | string |  The Unit of a VTuber |
+| hashtag | object | The Twitter (X) hashtags of a VTuber |
+| emoji | string | The Emoji of a VTuber |
+| avatar | string | The Avatar url |
+| status | string | The current status of a VTuber |
+| youtube | string | The YouTube channel url |
+| gender | string | The gender of a VTuber. Default "Female" |
+| likes | string[] | Things a VTuber likes |
+| dislikes | string[] | Things a VTuber doesn't like |
+| age | integer | The age of a VTuber |
+| birthday | string | The Birthday of a VTuber |
+| zodiac | string | The Zodiac Sign of a VTuber |
+| height | float | The Height of a VTuber |
+| socialNetworks | object[] | The List of all Social networks |
 
-### Covers
+*The attributes that are marked with an asterisk, are required when creating a model*
+
+- - -
+### Get VTubers
