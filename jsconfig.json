@@ -3,6 +3,7 @@
 		"module": "ES6",
 		"moduleResolution": "Bundler",
 		"target": "ES2020",
+		"noEmit": true,
 		"allowImportingTsExtensions": true,
 		"strictNullChecks": true,
 		"strictFunctionTypes": true
