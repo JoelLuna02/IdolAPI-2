@@ -22,5 +22,9 @@
 	"footer": {
 		"about": "Created by Hector Joel Luna",
 		"follow": "Follow me"
+	},
+	"notFound": {
+		"title": "Page Not Found",
+		"desc": "Sorry, the page you are looking for could not be found. Perhaps Rinako Bellerose is behind all this, who knows..."
 	}
 }

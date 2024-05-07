@@ -22,5 +22,9 @@
 	"footer": {
 		"about": "Desarrollado por Hector Joel Luna",
 		"follow": "Sígueme"
+	},
+	"notFound": {
+		"title": "Página no encontrada",
+		"desc": "Lo sentimos, no se pudo encontrar la página que estás buscando. Quizás Rinako Bellerose esté detrás de todo esto, quién sabe..."
 	}
 }
