@@ -1,5 +1,4 @@
 """
-#### [English]
 A `VTuber` scalar represents an entity of a virtual streamer, which contains information about its profile, such as its full name, its fan name, branch, assigned group, among others.
 """
 type VTuber {
@@ -23,6 +22,7 @@ type VTuber {
 	height: Float
 	hashtag: Hashtag
 	socialNetworks: [SocialNetwork!]
+	songs: [Song!]
 }
 
 """
@@ -44,15 +44,28 @@ type SocialNetwork {
 	vtuber: VTuber
 }
 
+type Song {
+	_id: String
+	name: String
+	album: String
+	releasedate: String
+	compositor: String
+	mixing: String
+	lyrics: String
+	vtuber: VTuber
+}
+
 # Queries
 # *******
 
 type Query {
-	getVtuber(ID: ID!): VTuber!
-	getHashtag(ID: ID!): Hashtag!
-	getSocial(ID: ID!): SocialNetwork!
+	getVtuber(ID: ID!): VTuber
+	getHashtag(ID: ID!): Hashtag
+	getSocial(ID: ID!): SocialNetwork
+	getSong(ID: ID!): Song
 	hashtag: [Hashtag]
 	socials: [SocialNetwork]
+	songs: [Song]
 	vtuber: [VTuber]
 }
 
@@ -60,6 +73,7 @@ type Query {
 # *********
 
 type Mutation {
+	assignSongToVtuber(SNGID: ID!, VTID: ID!): VTuber!
 	assignHashtagToVtuber(HTID: ID!, VTID: ID!): VTuber!
 	assignSocialNetworkToVtuber(SNID: ID!, VTID: ID!): VTuber!
 	addVtuber(
@@ -81,11 +95,20 @@ type Mutation {
 		zodiac: String
 		height: Float
 	): VTuber!
+	addSong(
+		name: String
+		album: String
+		releasedate: String
+		compositor: String
+		mixing: String
+		lyrics: String
+	): Song!
 	addHashtag(general: String, stream: String, fanart: String, memes: String): Hashtag!
 	addSocialNetwork(application: String, accounturl: String): SocialNetwork!
 	deleteVtuber(ID: ID!): Boolean
 	deleteHashtag(ID: ID!): Boolean
 	deleteSocialNetwork(ID: ID!): Boolean
+	deleteSong(ID: ID!): Boolean
 	editVtuber(
 		ID: ID!
 		fullname: String
