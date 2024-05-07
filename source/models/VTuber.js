@@ -21,6 +21,7 @@ const VTuberSchema = new Schema(
 		zodiac: { type: String, trim: true },
 		height: { type: Number, trim: true, default: 1.65 },
 		socialNetworks: [{ type: mongoose.Schema.Types.ObjectId, ref: "SocialNetwork" }],
+		songs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Song" }],
 	},
 	{
 		timestamps: true,

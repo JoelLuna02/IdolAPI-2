@@ -165,7 +165,10 @@ async function init_server() {
 	app.use((req, res, next) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
-		return res.status(404).render("notfound", { title: res.__("notFoundTitle"), navbar, footer });
+		const not_found = res.__("notFound");
+		return res
+			.status(404)
+			.render("notfound", { title: res.__("notFoundTitle"), navbar, footer, not_found });
 	});
 	app.listen(port, () => {
 		console.log(`\n Server listening on http://localhost:${port}\n`);

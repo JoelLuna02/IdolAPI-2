@@ -1,37 +1,25 @@
 import { isValidObjectId } from "mongoose";
 import connectDB from "../database";
 import VTuber from "../models/VTuber";
-import { magentaBright, redBright } from "colorette";
 import Hashtag from "../models/Hashtag";
-import { GraphQLError } from "graphql";
 
 export const vtuber_resolver = {
 	Query: {
 		async vtuber() {
-			try {
-				await connectDB();
-				const data = await VTuber.find().populate("hashtag").populate("socialNetworks");
-				let success = `[${magentaBright("GRAPHQL")}] Successful query!`;
-				console.log(success);
-				return data;
-			} catch (error) {
-				let data = `[${redBright("ERROR")}]\t ${error}`;
-				console.log(data);
-			}
+			await connectDB();
+			const data = await VTuber.find().populate("hashtag").populate("socialNetworks");
+			return data;
 		},
-		async getVtuber(_, { ID }) {
-			try {
-				await connectDB();
-				if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
-				const vtuber = await VTuber.findById(ID).populate("hashtag");
-				if (!vtuber) throw new Error("VTuber not found!");
-				let success = `[${magentaBright("GRAPHQL")}] Successful query!`;
-				console.log(success);
-				return vtuber;
-			} catch (error) {
-				let data = `[${redBright("ERROR")}]\t  ${error}`;
-				console.log(data);
+		getVtuber: async (_, { ID }) => {
+			await connectDB();
+			if (!isValidObjectId(ID)) {
+				throw new Error("Invalid VTuber ID");
 			}
+			const vtuber = await VTuber.findById(ID).populate("hashtag").populate("socialNetworks");
+			if (!vtuber) {
+				throw new Error("VTuber Not Found");
+			}
+			return vtuber;
 		},
 	},
 	Mutation: {
@@ -58,6 +46,9 @@ export const vtuber_resolver = {
 			},
 		) {
 			await connectDB();
+			if (process.env.NODE_ENV === "production") {
+				throw new Error("Mutation actions are only available in development mode");
+			}
 			const new_vtuber = new VTuber({
 				fullname,
 				fanname,
@@ -82,9 +73,13 @@ export const vtuber_resolver = {
 		},
 		async deleteVtuber(_, { ID }) {
 			await connectDB();
-			if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
+			if (process.env.NODE_ENV === "production") {
+				throw new Error("Mutation actions are only available in development mode");
+			}
+			if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
 			await Hashtag.findOneAndDelete({ vtuber: ID });
 			const deleted = (await VTuber.deleteOne({ _id: ID })).deletedCount;
+			if (!deleted) throw new Error("VTuber Not Found");
 			return deleted;
 		},
 		async editVtuber(
@@ -111,7 +106,10 @@ export const vtuber_resolver = {
 			},
 		) {
 			await connectDB();
-			if (!isValidObjectId(ID)) throw new GraphQLError("Invalid VTuber ID");
+			if (process.env.NODE_ENV === "production") {
+				throw new Error("Mutation actions are only available in development mode");
+			}
+			if (!isValidObjectId(ID)) throw new Error("Invalid VTuber ID");
 			const updated = (
 				await VTuber.updateOne(
 					{ _id: ID },
@@ -136,6 +134,7 @@ export const vtuber_resolver = {
 					},
 				)
 			).modifiedCount;
+			if (!updated) throw new Error("VTuber Not Found");
 			return updated;
 		},
 	},
