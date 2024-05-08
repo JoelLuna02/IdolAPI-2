@@ -145,7 +145,8 @@ async function init_server() {
 	app.get("/about", (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
-		const markdown = fs.readFileSync("./views/markdown/about.mdx", "utf-8");
+		const lang = req.getLocale();
+		const markdown = fs.readFileSync(`./views/markdown/${lang}/about-${lang}.mdx`, "utf-8");
 		const html = marked(markdown);
 		return res.render("about", {
 			title: res.__("aboutTitle"),
@@ -154,10 +155,11 @@ async function init_server() {
 			footer,
 		});
 	});
-	app.get("/support", (_req, res) => {
+	app.get("/support", (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
-		const markdown = fs.readFileSync("./views/markdown/support.mdx", "utf-8");
+		const lang = req.getLocale();
+		const markdown = fs.readFileSync(`./views/markdown/${lang}/support-${lang}.mdx`, "utf-8");
 		const html = marked(markdown);
 		return res.render("support", { title: res.__("supportTitle"), docs: html, navbar, footer });
 	});

@@ -4,6 +4,7 @@ import { config } from "dotenv";
 config({ path: ".env.local", override: true });
 const dburl = process.env.MONGODB_URI;
 const db_name = process.env.MONGODB_NAME;
+const options = process.env.MONGODB_OPTIONS;
 
 async function connectDB() {
 	if (dburl === undefined) {
@@ -11,7 +12,7 @@ async function connectDB() {
 	} else if (db_name === undefined) {
 		throw new Error("No database name specified");
 	}
-	await mongoose.connect(`${dburl}/${db_name}`).catch((err) => {
+	await mongoose.connect(`${dburl}/${db_name}${options}`).catch((err) => {
 		throw err;
 	});
 }
