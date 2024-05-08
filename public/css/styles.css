@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
 	color-scheme: light dark;
@@ -27,7 +27,33 @@ tr:hover {
 /* TABLE STYLES */
 
 
-::-webkit-scrollbar {
+/* Blockquotes */
+blockquote {
+	background: #23272b;
+	border-left: 10px solid #222;
+	margin: 1.5em 10px;
+	padding: 1rem 15px;
+	quotes: "\201C""\201D""\2018""\2019";
+	border-radius: 0.5rem;
+	font-family: "Ubuntu", sans-serif;
+  	font-weight: 400;
+  	font-style: italic;
+}
+blockquote:before {
+	color: #666;
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+blockquote p {
+	display: inline;
+	color: #dddddd;
+}
+/* Blockquotes */
+
+/* ::-webkit-scrollbar {
 	width: 10px;
 }
 ::-webkit-scrollbar-track {
@@ -38,7 +64,7 @@ tr:hover {
 	background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
  	box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 	border-radius: 100px;
-}
+} */
 
 ul {
     list-style-type: none;
@@ -128,6 +154,24 @@ pre code {
 		background-color: #e9e9e9;
 	}
 	/* TABLE STYLES */
+	/* Blockquotes */
+	blockquote {
+		background: #f4f5f6;
+		border-left: 10px solid #bbb;
+	}
+	blockquote:before {
+		color: #ccc;
+		content: open-quote;
+		font-size: 4em;
+		line-height: 0.1em;
+		margin-right: 0.25em;
+		vertical-align: -0.4em;
+	}
+	blockquote p {
+		display: inline;
+		color: #363d44;
+	}
+	/* Blockquotes */
 }
 
 pre {
