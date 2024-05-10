@@ -37,7 +37,13 @@ vtuber_routes.get("/:vtid", async (req, res) => {
 			)
 			.populate("hashtag", "-_id general stream fanart memes")
 			.populate("socialNetworks", "_id application accounturl")
-			.populate("songs", "_id name album releasedate compositor mixing lyrics");
+			.populate("songs", "_id name album releasedate compositor mixing lyrics")
+			.populate({
+				path: "covers",
+				model: Cover,
+				select: "_id name musicVideo illustration mix",
+				populate: { path: "original", select: "-_id artist album release genre" },
+			});
 		if (!vtuber) return res.status(404).json({ message: "VTuber not found" });
 		return res.status(200).json(vtuber);
 	} catch (error) {

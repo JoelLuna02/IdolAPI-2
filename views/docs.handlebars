@@ -1,6 +1,6 @@
 <style>
     .left { padding-left: 270px; } 
-    main { padding-left: 270px; } @media (max-width: 768px) { main { padding-left: 0px;  } .left { padding-left: 0px; }  }
+    main { padding-left: 270px; } @media (max-width: 767px) { main { padding-left: 0px;  } .left { padding-left: 0px; }  }
 </style>
 <div class="container">
     <div class="bg-image rounded-5 shadow m-4">
@@ -10,17 +10,10 @@
                 <div class="p-3 text-white ps-md-4">
                     <div class="row">
                         <div class="col-lg-6 col-md-9">
-                            <p class="pt-3 pt-md-2 outfit-font fw-bold display-3">Documentation</p>
-                            <p class="lh-1">
-                                Explore our documentation to learn about every aspect of our API! From describing
-                                endpoints
-                                to examples of requests and responses, our documentation will guide you in the correct
-                                use
-                                of the API. Whether you are a beginner or an experienced developer, here you will find
-                                all
-                                the information you need to integrate our API into your projects efficiently and
-                                effectively.
-                            </p>
+                            {{#with trans}}
+                            <p class="pt-3 pt-md-2 outfit-font fw-bold display-3">{{title}}</p>
+                            <p class="lh-1">{{desc}}</p>
+                            {{/with}}
                         </div>
                     </div>
                 </div>
@@ -32,7 +25,7 @@
             tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-scroll="true"
             data-bs-backdrop="false">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                <span class="fs-4 fw-bold">Index</span>
+                <span class="fs-3 fw-bold">{{#with trans}}{{index}}{{/with}}</span>
                 <button type="button" class="btn-close d-md-none ms-auto" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -42,12 +35,19 @@
                     <li class="bg-transparent nav-item">
                         {{#if (greaterThan this.level 1)}}
                         <ul style="padding-left: 0px; " class="lh-sm">
-                            <li>
-                                <a href="#{{this.id}}" class="nav-link">{{this.title}}</a>
+                            {{#if (greaterThan this.level 2)}}
+                            <li style="padding-left: 20px; ">
+                                <a href="#{{this.id}}" class="nav-link fw-light">{{this.title}}</a>
                             </li>
+                            {{else}}
+                            <li>
+                                <a href="#{{this.id}}" class="nav-link fw-medium">{{this.title}}</a>
+                            </li>
+                            {{/if}}
                         </ul>
                         {{else}}
-                        <a href="#{{this.id}}" class="nav-link fs-5 fw-bold pt-3">{{this.title}}</a>
+                        <hr/>
+                        <a href="#{{this.id}}" class="nav-link fs-4 fw-bold">{{this.title}}</a>
                         {{/if}}
                     </li>
                     {{/each}}

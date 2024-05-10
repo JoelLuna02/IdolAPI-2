@@ -26,5 +26,16 @@
 	"notFound": {
 		"title": "Página no encontrada",
 		"desc": "Lo sentimos, no se pudo encontrar la página que estás buscando. Quizás Rinako Bellerose esté detrás de todo esto, quién sabe..."
+	},
+	"about": {
+		"title": "Acerca de"
+	},
+	"support": {
+		"title": "Apóyanos"
+	},
+	"docs": {
+		"title": "Documentación",
+		"desc": "¡Explora nuestra documentación para aprender sobre cada aspecto de nuestra API! Desde la descripción de endpoints, hasta ejemplos de solicitudes y respuestas, nuestra documentación te guiará en el uso correcto de la API. Ya seas un desarrollador principiante o experimentado, aquí encontrarás toda la información que necesitas para integrar nuestra API en tus proyectos de manera fácil y efectiva.",
+		"index": "Índice"
 	}
 }

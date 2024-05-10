@@ -93,7 +93,7 @@ You can see more query functions in our GraphQL console. If you are new to this,
 
 We have defined some models with their respective schemes and relationships:
 
-### VTuber
+## VTuber
 
 VTuber Model schema:
 
@@ -120,7 +120,111 @@ VTuber Model schema:
 | height | float | The Height of a VTuber |
 | socialNetworks | object[] | The List of all Social networks |
 
-> The attributes that are marked with an asterisk, are required when creating a model
+> **Note:** The attributes that are marked with an asterisk, are required when creating a model
 
 - - -
 ### Get VTubers
+Through the `/api/vtuber` endpoint, you can access a list of all available VTubers.
+
+```json
+[
+  {
+    "_id": "66354b7b9844804c18840cde",
+    "fullname": "Kattarina Qutie",
+    "fanname": "Quties",
+    "quote": "Join the Mafia!",
+    "nicknames": [
+      "Katt",
+      "Katta",
+      "Qutie",
+      "qt"
+    ],
+    "branch": "EN",
+    "unit": "Genesis",
+    "emoji": "🤍",
+    "avatar": "api/assets/KattarinaQutie.jpg",
+    "status": "ACTIVE",
+    "youtube": "https://www.youtube.com/@kattarina_qutie",
+    "gender": "Female",
+    "likes": null,
+    "dislikes": null,
+    "age": 0,
+    "birthday": "7 August",
+    "zodiac": "Leo",
+    "height": 1.55,
+    "socialNetworks": [
+      {
+        "_id": "66354c6b7edf1192c174ea7f",
+        "application": "Twitter (X)",
+        "accounturl": "https://twitter.com/kattarina_qutie"
+      },
+      {
+        "_id": "66354c7b7edf1192c174ea81",
+        "application": "Instagram",
+        "accounturl": "https://www.instagram.com/kattarina_qutie/"
+      }
+    ],
+    "hashtag": {
+      "general": "#KattarinaQutie",
+      "stream": "#qtlive",
+      "fanart": "#qtart",
+      "memes": "#qtmeme"
+    },
+    "covers": [
+      {
+        "_id": "663e02756e87e82ebfd1e38f",
+        "name": "GETCHA! ft Tama Quon",
+        "musicVideo": "paztg motion",
+        "illustration": "Harley Oron",
+        "mix": "CalvinJerky",
+        "original": {
+          "artist": "Giga & KIRA",
+          "album": "GUMIFUL!",
+          "release": "2020-09-25",
+          "genre": [
+            "Vocaloid Utaite",
+            "J-Pop"
+          ]
+        }
+      }
+    ],
+    "songs": []
+  },
+  {
+    // ...
+  }
+]
+```
+- - -
+### Get VTuber by ID
+You can get a VTuber entity by ID, using the `/api/vtuber/` endpoint followed by the `id` parameter. 
+The identifiers are of type ObjectID
+
+Suppose you want to search for Nikki Rei: `/api/vtuber/66359464e0094e9971f80bc0`
+```json
+{
+    "_id": "66359464e0094e9971f80bc0",
+    "fullname": "Nikki Rei",
+    "fanname": "Nutheads",
+    "quote": "Bonk!",
+    "nicknames": [
+      "Nuke"
+      //...
+    ],
+    "branch": "EN",
+    "unit": "Genesis",
+    "emoji": "🛠️",
+    "avatar": "api/assets/NikkiRei.jpg",
+    "status": "ACTIVE",
+    "youtube": "https://www.youtube.com/@NikkiRei",
+    "gender": "Female",
+    //...
+}
+```
+- - -
+### Get Random VTuber
+You can even randomly get a vtuber entity using the `/random/` endpoint
+- - -
+### Query Parameters
+
+## Hashtag

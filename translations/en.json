@@ -26,5 +26,16 @@
 	"notFound": {
 		"title": "Page Not Found",
 		"desc": "Sorry, the page you are looking for could not be found. Perhaps Rinako Bellerose is behind all this, who knows..."
+	},
+	"about": {
+		"title": "About"
+	},
+	"support": {
+		"title": "Support us"
+	},
+	"docs": {
+		"title": "Documentation",
+		"desc": "Explore our documentation to learn about every aspect of our API! From describing endpoints to examples of requests and responses, our documentation will guide you in the correct use of the API. Whether you are a beginner or an experienced developer, here you will find all the information you need to integrate our API into your projects efficiently and effectively.",
+		"index": "Index"
 	}
 }
