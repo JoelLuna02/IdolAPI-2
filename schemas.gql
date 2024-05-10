@@ -9,10 +9,12 @@ type VTuber {
 	nicknames: [String!]
 	branch: String
 	unit: String
+	hashtag: Hashtag
 	emoji: String
 	youtube: String
 	status: String
 	avatar: String
+	covers: [Cover!]
 	gender: String
 	likes: [String!]
 	dislikes: [String!]
@@ -20,7 +22,6 @@ type VTuber {
 	birthday: String
 	zodiac: String
 	height: Float
-	hashtag: Hashtag
 	socialNetworks: [SocialNetwork!]
 	songs: [Song!]
 }
@@ -55,6 +56,25 @@ type Song {
 	vtuber: VTuber
 }
 
+type Original {
+	_id: String
+	artist: String
+	album: String
+	release: String
+	genre: [String!]
+	cover: Cover
+}
+
+type Cover {
+	_id: String
+	name: String
+	musicVideo: String
+	illustration: String
+	original: Original
+	vtuber: VTuber
+	mix: String
+}
+
 # Queries
 # *******
 
@@ -62,11 +82,13 @@ type Query {
 	getVtuber(ID: ID!): VTuber
 	getHashtag(ID: ID!): Hashtag
 	getSocial(ID: ID!): SocialNetwork
+	getCover(ID: ID!): Cover
 	getSong(ID: ID!): Song
 	hashtag: [Hashtag]
 	socials: [SocialNetwork]
 	songs: [Song]
 	vtuber: [VTuber]
+	covers: [Cover]
 }
 
 # Mutations
@@ -76,6 +98,9 @@ type Mutation {
 	assignSongToVtuber(SNGID: ID!, VTID: ID!): VTuber!
 	assignHashtagToVtuber(HTID: ID!, VTID: ID!): VTuber!
 	assignSocialNetworkToVtuber(SNID: ID!, VTID: ID!): VTuber!
+	assignOriginalDataToCover(CVID: ID!, ORID: ID!): Cover!
+	assignCoverToVTuber(VTID: ID!, CVID: ID!): VTuber!
+
 	addVtuber(
 		fullname: String
 		fanname: String
@@ -105,10 +130,15 @@ type Mutation {
 	): Song!
 	addHashtag(general: String, stream: String, fanart: String, memes: String): Hashtag!
 	addSocialNetwork(application: String, accounturl: String): SocialNetwork!
+	addCover(name: String, musicVideo: String, illustration: String, mix: String): Cover!
+	addOriginal(artist: String, album: String, release: String, genre: [String!]): Original!
+
 	deleteVtuber(ID: ID!): Boolean
 	deleteHashtag(ID: ID!): Boolean
 	deleteSocialNetwork(ID: ID!): Boolean
 	deleteSong(ID: ID!): Boolean
+	deleteCover(ID: ID!): Boolean
+
 	editVtuber(
 		ID: ID!
 		fullname: String
