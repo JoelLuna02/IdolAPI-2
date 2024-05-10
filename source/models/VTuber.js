@@ -11,6 +11,7 @@ const VTuberSchema = new Schema(
 		hashtag: { type: mongoose.Schema.Types.ObjectId, ref: "Hashtag" },
 		emoji: { type: String, trim: true },
 		avatar: { type: String, unique: true, trim: true },
+		covers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Cover" }],
 		status: { type: String, enum: ["ACTIVE", "GRADUATED", "HIATUS", "UNKNOWN"], default: "ACTIVE" },
 		youtube: { type: String, trim: true, unique: true },
 		gender: { type: String, trim: true, default: "Female" },

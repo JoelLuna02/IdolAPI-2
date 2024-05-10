@@ -2,12 +2,22 @@ import { isValidObjectId } from "mongoose";
 import connectDB from "../database";
 import VTuber from "../models/VTuber";
 import Hashtag from "../models/Hashtag";
+import Cover from "../models/Cover";
 
 export const vtuber_resolver = {
 	Query: {
 		async vtuber() {
 			await connectDB();
-			const data = await VTuber.find().populate("hashtag").populate("socialNetworks");
+			const data = await VTuber.find()
+				.populate("hashtag")
+				.populate("socialNetworks")
+				.populate("songs")
+				.populate({
+					path: "covers",
+					model: Cover,
+					select: "_id name musicVideo illustration mix",
+					populate: { path: "original", select: "-_id artist album release genre" },
+				});
 			return data;
 		},
 		getVtuber: async (_, { ID }) => {
@@ -15,7 +25,16 @@ export const vtuber_resolver = {
 			if (!isValidObjectId(ID)) {
 				throw new Error("Invalid VTuber ID");
 			}
-			const vtuber = await VTuber.findById(ID).populate("hashtag").populate("socialNetworks");
+			const vtuber = await VTuber.findById(ID)
+				.populate("hashtag")
+				.populate("socialNetworks")
+				.populate("songs")
+				.populate({
+					path: "covers",
+					model: Cover,
+					select: "_id name musicVideo illustration mix",
+					populate: { path: "original", select: "-_id artist album release genre" },
+				});
 			if (!vtuber) {
 				throw new Error("VTuber Not Found");
 			}

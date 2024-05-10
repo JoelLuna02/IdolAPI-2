@@ -15,6 +15,7 @@ import vtuber_routes from "./routes/vtuber.routes";
 import hashtag_routes from "./routes/hashtag.routes";
 import social_routes from "./routes/social.routes";
 import assets_routes from "./routes/assets.routes";
+import cover_routes from "./routes/cover.routes";
 import connectDB from "./database";
 import VTuber from "./models/VTuber";
 import auth_router from "./routes/auth.routes";
@@ -60,6 +61,11 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * @param {any[]} array
+ * @param {number} numb
+ * @returns {any[]}
+ */
 function shuffleArray(array, numb) {
 	for (let i = array.length - 1; i > 0; i--) {
 		const j = getRandomInt(0, i);
@@ -90,6 +96,7 @@ async function init_server() {
 	app.use("/api/social", social_routes);
 	app.use("/api/vtuber", vtuber_routes);
 	app.use("/api/assets", assets_routes);
+	app.use("/api/cover", cover_routes);
 	app.use("/api/auth", auth_router);
 
 	app.get("/gql", (_req, res) => {
