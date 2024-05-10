@@ -11,7 +11,7 @@ table {
 	color: #fff;
 }
 td, th {
-	border: 1px solid #333;
+	border: 0px solid #333;
 	padding: 8px;
 	text-align: left;
 }
@@ -29,7 +29,7 @@ tr:hover {
 
 /* Blockquotes */
 blockquote {
-	background: #23272b;
+	background: #16181a;
 	border-left: 10px solid #222;
 	margin: 1.5em 10px;
 	padding: 1rem 15px;
@@ -77,7 +77,8 @@ ul {
 .footing a:hover { color: white; }
 .footing a.nav-link:hover { color: #ffffff; }
 .footing h5.offcanvas-title { color: #d3d4d5; }
-.footing button.btn-close { color: #d3d4d5; }
+.footing .offcanvas button.btn-close { color: #d3d4d5; }
+.footing button.navbar-toggler { color: #ffffff; }
 .background2 { background-color: #1f2022; color: #f1f2f3; }
 
 body {
@@ -126,8 +127,9 @@ pre code {
 	.footing a.navbar-brand { color: #363d44; }
 	.footing a.navbar-brand:hover { color: black; font-weight: 500; }
 	.footing a.nav-link:hover { color: black; font-weight: 500; }
-	.footing button.btn-close { color: hsl(200, 6%, 10%); }
+	.footing .offcanvas button.btn-close { color: hsl(200, 6%, 10%); }
 	.footing h5.offcanvas-title { color: hsl(200, 6%, 10%); }
+	.footing button.navbar-toggler { color: #111; }
 	.background2 { background-color: #f1f2f3; color: #1a2027; }
 	.imagefooter { filter: invert(0%); }
 	::-webkit-scrollbar-track {
