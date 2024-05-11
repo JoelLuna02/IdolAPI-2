@@ -1,5 +1,9 @@
 <div align="center">
-  
+
+  <img src="public/logo.png" width="30%" style="border-radius: 1rem; margin-bottom: 1rem" />
+
+  # **IdolAPI - the Idol fanmade REST API** 
+
   ![GitHub package.json version](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI-2)
   ![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI-2)
   ![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
