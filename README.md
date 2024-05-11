@@ -1,5 +1,4 @@
 <div align="center">
-
   <img src="public/logo.png" width="30%" style="border-radius: 1rem; margin-bottom: 1rem" />
 
   # **IdolAPI - the Idol fanmade REST API** 
@@ -7,12 +6,14 @@
   ![GitHub package.json version](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI-2)
   ![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI-2)
   ![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
-  ![Node LTS](https://img.shields.io/node/v-lts/eslint)
+  ![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green)
+  ![NPM Version](https://img.shields.io/npm/v/eslint)
 
 </div>
+
 IdolAPI, an open source platform based on Idol corp., designed to facilitate learning and practicing key REST API development concepts.
 
-## Getting Started ![Node.js](https://img.shields.io/badge/Node.js-v18.16.5-brightgreen.svg) ![npm](https://img.shields.io/badge/npm-v9.5.1-blue.svg)
+## Getting Started
 
 You can configure locally by following these steps:
 
