@@ -1,13 +1,13 @@
 <div align="center">
   <img src="public/logo.png" width="30%" style="border-radius: 1rem; margin-bottom: 1rem" />
 
-  # **IdolAPI - the Idol fanmade REST API** 
+# **IdolAPI - the Idol fanmade REST API**
 
-  ![GitHub package.json version](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI)
-  ![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI)
-  ![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
-  ![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green)
-  ![NPM Version](https://img.shields.io/npm/v/eslint)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI)
+![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
+![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green)
+![NPM Version](https://img.shields.io/npm/v/eslint)
 
 </div>
 
@@ -37,7 +37,7 @@ You can configure locally by following these steps:
 
 Take a look at the [documentation](http://localhost:3000/docs) for more information on using the app.
 
-- - -
+---
 
 ## Support this project ![Ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)
 
@@ -47,7 +47,7 @@ Take a look at the [documentation](http://localhost:3000/docs) for more informat
     <img height="56" style="border: 0px; height: 56px" src="https://storage.ko-fi.com/cdn/kofi5.png?v=3" border="0" alt="Buy Me a Coffee at ko-fi.com" />
 </a>
 
-- - -
+---
 
 ## **Become a sponsor!**
 
