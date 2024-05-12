@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" width="30%" style="border-radius: 1rem; margin-bottom: 1rem" />
+  <img src="public/logo.png" width="20%" style="border-radius: 1rem; margin-bottom: 1rem" />
 
 # **IdolAPI - the Idol fanmade REST API**
 
