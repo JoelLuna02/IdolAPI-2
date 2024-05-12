@@ -3,7 +3,7 @@
 
 # **IdolAPI - the Idol fanmade REST API**
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI/Express)
 ![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI)
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
 ![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green)
