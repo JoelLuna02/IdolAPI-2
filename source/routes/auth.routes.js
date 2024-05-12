@@ -45,13 +45,15 @@ auth_router.post("/signup", async (req, res) => {
 	const form = req.body;
 	try {
 		await connectDB();
+		var salt = bcrypt.genSaltSync(12);
+		const passwd = bcrypt.hashSync(form.password, salt);
 		const new_user = new JWT_Auth({
 			firstname: form.firstname,
 			lastname: form.lastname,
 			phone: parseInt(form.phone),
 			email: form.email,
 			username: form.username,
-			password: bcrypt.hash(form.password, 12),
+			password: passwd,
 			isAdmin: form.isAdmin || false,
 		});
 		const data = await new_user.save();
@@ -65,11 +67,12 @@ auth_router.post("/signup", async (req, res) => {
 auth_router.post("/login", async (req, res) => {
 	const form = req.body;
 	try {
+		await connectDB();
 		const user = await JWT_Auth.findOne({ username: form.username }).select(
-			"_id username email isAdmin",
+			"_id username password email isAdmin",
 		);
 		if (!user) return res.status(401).json({ unauthorized: "The username does not exist!" });
-		const password = await bcrypt.compare(form.password, user.password);
+		const password = bcrypt.compareSync(form.password, user.password);
 		if (!user || !password) {
 			res.status(401).json({ unauthorized: "Incorrect password. please try again." });
 		}
