@@ -79,8 +79,41 @@
         {{/if}}
         {{/with}}
         <div class="row gx-0 gx-md-3 gx-lg-0 gx-xl-3">
-            <div class="col-12 col-xl-4">
-                <div class="card footing mb-3 mb-xl-0">
+            <div class="col-12 col-xl-8">
+                <div class="row g-1">
+                {{#each random}}
+                <div class="col-md-6">
+                <div class="card mx-3 mx-md-1 mx-lg-2 mx-xl-2 footing my-3 my-lg-2 outfit-font">
+                    <div class="row g-0">
+                         <div class="col-sm-6 col-md-5 text-center">
+                            <img src="/{{this.avatar}}" width="320" height="320" class="v-100 h-100 img-fluid rounded-start" id="fit2" />
+                        </div>
+                        <div class="col-sm-6 col-md-7">
+                            <div class="card-body">
+                                <a class="card-title fw-bold fs-5 lh-1" href="/api/vtuber/{{this._id}}">{{this.emoji}} | {{this.fullname}}</a>
+                                {{#if (equals this.quote null)}}
+                                    <p><strong>No description</strong></p>
+                                {{else}}
+                                    <p class="lh-1">{{this.quote}}</p>
+                                {{/if}}
+                                <p style="font-size: 0.9rem">
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Height:</span><span class="ms-auto">{{this.height}}m</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Gender:</span><span class="ms-auto">{{this.gender}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Fanname:</span><span class="ms-auto">{{this.fanname}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Zodiac:</span><span class="ms-auto">{{this.zodiac}}</span></div>
+                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Birthday:</span><span class="ms-auto">{{this.birthday}}</span></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="card footing mt-4 mt-xl-0">
                     <div class="card-body lexend-deca-font">
                         <h3>Full List of vtubers</h3>
                         <div class="row">
@@ -119,39 +152,6 @@
                         </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-12  col-xl-8">
-                <div class="row g-1">
-                {{#each random}}
-                <div class="col-md-6">
-                <div class="card mx-3 mx-md-1 mx-lg-4 mx-xl-2 footing my-3 my-lg-2 outfit-font">
-                    <div class="row g-0">
-                         <div class="col-sm-6 col-md-5 text-center">
-                            <img src="/{{this.avatar}}" width="320" height="320" class="v-100 h-100 img-fluid rounded-start" id="fit2" />
-                        </div>
-                        <div class="col-sm-6 col-md-7">
-                            <div class="card-body">
-                                <a class="card-title fw-bold fs-5 lh-sm" href="/api/vtuber/{{this._id}}">{{this.emoji}} | {{this.fullname}}</a>
-                                {{#if (equals this.quote null)}}
-                                    <p><strong>No description</strong></p>
-                                {{else}}
-                                    <p>{{this.quote}}</p>
-                                {{/if}}
-                                <p style="font-size: 0.9rem">
-                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Height:</span><span class="ms-auto">{{this.height}}m</span></div>
-                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Gender:</span><span class="ms-auto">{{this.gender}}</span></div>
-                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Fanname:</span><span class="ms-auto">{{this.fanname}}</span></div>
-                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Zodiac:</span><span class="ms-auto">{{this.zodiac}}</span></div>
-                                    <div class="hstack gap-2 lh-1"><span class="fw-bold">Birthday:</span><span class="ms-auto">{{this.birthday}}</span></div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                {{/each}}
                 </div>
             </div>
         </div>
