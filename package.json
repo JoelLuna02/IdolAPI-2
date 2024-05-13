@@ -1,22 +1,25 @@
 {
 	"name": "idol-api",
-	"version": "0.8.5",
+	"version": "0.9.1",
 	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon",
 		"build:clean": "rimraf build",
-		"build": "babel source -d build",
-		"build:babel": "npm-run-all -s build:clean \"lint .\" \"prettier .\" build:babel",
+		"build:babel": "babel source -d build",
+		"build": "npm-run-all -s build:clean build:babel",
 		"start": "cross-env NODE_ENV=production node build/server.js",
 		"prettier:fix": "prettier --write",
 		"lint:fix": "eslint --fix",
 		"prettier": "prettier -c",
 		"lint": "eslint"
 	},
-	"keywords": [],
+	"keywords": [
+		"javascript", "graphql", "babel", "express", "rest-api", "handlebars",
+		"expressjs", "api-rest", "idol", "beta-release","vtuber", "idol-corp"
+	],
 	"author": "Héctor Joel Luna",
 	"license": "MIT",
-	"description": "",
+	"description": "IdolAPI: A RESTful API based on the Israeli VTubers agency Idol Corp.",
 	"dependencies": {
 		"@graphql-tools/schema": "^10.0.3",
 		"@graphql-tools/utils": "^10.1.3",
