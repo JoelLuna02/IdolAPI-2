@@ -1,7 +1,7 @@
 {
 	"name": "idol-api",
 	"version": "0.8.5",
-	"main": "build/server.js",
+	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon",
 		"build:clean": "rimraf build",
