@@ -5,6 +5,7 @@
 
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/JoelLuna02/IdolAPI/Express)
 ![GitHub License](https://img.shields.io/github/license/JoelLuna02/IdolAPI)
+![GitHub Release](https://img.shields.io/github/v/release/JoelLuna02/IdolAPI?include_prereleases)
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/JoelLuna02?style=flat&logo=github&label=Sponsors&color=green)
 ![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green)
 ![Koyeb](https://img.shields.io/badge/-Koyeb-121212?style=flat&logo=koyeb&logoColor=white)
