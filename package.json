@@ -5,8 +5,8 @@
 	"scripts": {
 		"dev": "nodemon",
 		"build:clean": "rimraf build",
-		"build:babel": "babel source -d build",
-		"build": "npm-run-all -s build:clean \"lint .\" \"prettier .\" build:babel",
+		"build": "babel source -d build",
+		"build:babel": "npm-run-all -s build:clean \"lint .\" \"prettier .\" build:babel",
 		"start": "cross-env NODE_ENV=production node build/server.js",
 		"prettier:fix": "prettier --write",
 		"lint:fix": "eslint --fix",
