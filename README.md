@@ -40,7 +40,7 @@ Take a look at the [documentation](http://localhost:3000/docs) for more informat
 
 ---
 
-## Support this project ![Ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)
+## Support this project ![Ko-fi Badge](https://img.shields.io/badge/Ko--fi-FF5E5B?logo=kofi&logoColor=fff&style=flat)
 
 🙏 Please consider supporting us, no matter how big or small the contribution is. It would help us a lot to continue keeping this API with its data updated and protected from any malicious attack.
 
@@ -50,7 +50,7 @@ Take a look at the [documentation](http://localhost:3000/docs) for more informat
 
 ---
 
-## **Become a sponsor!**
+## **Become a sponsor!**  ![Github Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-EA4AAA?logo=githubsponsors&logoColor=fff&style=flat)
 
 You can also become a Sponsor through [Github Sponsors](https://github.com/sponsors/JoelLuna02).
 Your Name and your avatar will be displayed in future projects and websites.
