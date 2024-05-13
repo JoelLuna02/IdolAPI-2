@@ -38,8 +38,8 @@ const hbs = create({
 	},
 });
 
-/** @type {Number} The server port */
-const port = 3000;
+/** The server port */
+const port = process.env.PORT || 3000;
 
 /** @param {string} markdown */
 function generateIndex(markdown) {
