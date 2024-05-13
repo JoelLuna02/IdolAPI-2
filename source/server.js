@@ -108,21 +108,19 @@ async function init_server() {
 		);
 	});
 
-	app.get("/api/change-language", (req, res) => {
-		const { lang } = req.query;
-		if (lang) {
-			res.cookie("lang", lang, { maxAge: 900000, httpOnly: true });
-		}
-		res.redirect(req.headers.referer || "/");
-	});
-
 	app.get("/", async (req, res) => {
 		const navbar = res.__("navbar");
 		const footer = res.__("footer");
 		const warning = res.__("warn");
 		await connectDB();
-		const vtubers = await VTuber.find();
-		const random = shuffleArray(vtubers, 6);
+		const vtubers = await VTuber.find().sort({ unit: 1 }).exec();
+		let length = vtubers.length;
+		let random;
+		if (length >= 6) {
+			random = shuffleArray(vtubers, 6);
+		} else {
+			random = shuffleArray(vtubers, length);
+		}
 		return res.render("index", {
 			title: res.__("mainTitle"),
 			navbar,
