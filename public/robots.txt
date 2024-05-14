@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /api
-Host: http://localhost:3000
+Host: https://idolapi.koyeb.app
