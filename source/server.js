@@ -88,7 +88,7 @@ async function init_server() {
 	app.set("view engine", "handlebars");
 	app.set("views", "./views");
 
-	AllowCORS(app, ["http://localhost:5173", "http://localhost:3000"]);
+	AllowCORS(app, ["http://localhost:3000", "https://idolapi.koyeb.app"]);
 
 	app.all("/api/graphql", createHandler({ schema })); // Implement GraphQL handler
 
