@@ -1,6 +1,6 @@
 {
 	"name": "idol-api",
-	"version": "0.9.1",
+	"version": "0.9.3",
 	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon",
