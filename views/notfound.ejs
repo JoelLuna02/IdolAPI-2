@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main>
+    <div class="p-5 text-center">
+        <h1 class="display-4 pt-5 fw-bold"><%= not_found.title %></h1>
+        <p><%= not_found.desc %></p>
+        <div style="height: 45vh;"></div>
+    </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

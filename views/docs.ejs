@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main>
+
+    <style>
+        .left { padding-left: 270px; } 
+        main { padding-left: 270px; } @media (max-width: 767px) { main { padding-left: 0px;  } .left { padding-left: 0px; }  }
+    </style>
+    <div class="container">
+        <div class="bg-image rounded-5 shadow m-4">
+            <img src="/portrait2.png" class="fix img-fluid v-100 fix2" id="fit2" />
+            <div class="mask gradient1">
+                <div class="d-flex justify-content-md-start align-items-start h-100">
+                    <div class="p-3 text-white ps-md-4">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-9">
+                                <p class="pt-3 pt-md-2 outfit-font fw-bold display-3"><%= trans.title %></p>
+                                <p class="lh-1"><%= trans.desc %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="offcanvas offcanvas-start border-0 shadow-sm rounded-5 p-4 m-0 m-md-4 footing lexend-deca-font"
+                tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-scroll="true"
+                data-bs-backdrop="false">
+                <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                    <span class="fs-3 fw-bold"><%= trans.index %></span>
+                    <button type="button" class="btn-close d-md-none ms-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div id="index" class="overflow-y-auto">
+                    <ul class="flex-column mb-auto" style="padding-left: 0px; margin-bottom: 10px;">
+                        <% headers.forEach(function(header) { %>
+                        <li class="bg-transparent nav-item">
+                            <% if (header.level > 1) { %>
+                            <ul style="padding-left: 0px; " class="lh-sm">
+                                <% if (header.level > 2) { %>
+                                <li style="padding-left: 20px; ">
+                                    <a href="#<%= header.id %>" class="nav-link fw-light"><%= header.title %></a>
+                                </li>
+                                <% } else {  %>
+                                <li>
+                                    <a href="#<%= header.id %>" class="nav-link fw-medium"><%= header.title %></a>
+                                </li>
+                                <% } %>
+                            </ul>
+                            <% } else { %>
+                            <hr/>
+                            <a href="#<%= header.id %>" class="nav-link fs-4 fw-bold"><%= header.title %></a>
+                            <% } %>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-xl-2"></div>
+                <div class="col-lg-10 col-xl-8 lh-sm">
+                    <%- docs %>
+                </div>
+                <div class="col-lg-1 col-xl-2"></div>
+            </div>
+            <div id="content" data-bs-spy="scroll" data-bs-target="#index">
+                <div class="d-md-none text-end fixed-bottom px-5" style="padding-bottom: 5rem;">
+                    <button type="button" class="btn btn-primary btn-floating btn-lg" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<header class="sticky-top lexend-deca-font">
+    <nav class="navbar navbar-expand-md shadow border border-0 footing">
+        <div class="container-fluid container-xl px-2 px-md-4 px-lg-5 py-1 py-md-0">
+            <a class="navbar-brand fw-bold ms-3 ms-md-0" href="/"><%= navbar.title %></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#MainMenu"
+                aria-controls="MainMenu" aria-label="Toggle navigation">
+                <i class="ri-menu-fill"></i>
+            </button>
+
+            <div class="offcanvas-md offcanvas-end flex-grow-1 footing border border-0" tabindex="-1" id="MainMenu"
+                aria-labelledby="LabelMainMenu" data-bs-scroll="true" data-bs-backdrop="false">
+                <div class="offcanvas-header px-4 pb-0">
+                    <h5 class="offcanvas-title" id="LabelMainMenu"><%= navbar.more %></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                        data-bs-target="#MainMenu"></button>
+                </div>
+
+                <div class="offcanvas-body p-4 pt-0 p-md-0">
+                    <hr class="d-md-none text-white-50">
+                    <ul class="navbar-nav ms-auto me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="/docs"><i
+                                    class="ri-article-line me-1"></i><%= navbar.docs %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-0 px-md-2" href="/about"><i
+                                    class="ri-information-2-line me-1"></i><%= navbar.about %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-0 px-md-2" href="/support"><i
+                                    class="ri-hand-heart-line me-1"></i><%= navbar.support %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-0 px-md-2" href="/gql"><i
+                                    class="ri-terminal-box-line me-1"></i><%= navbar.graphql %></a>
+                        </li>
+                    </ul>
+
+                    <hr class="d-md-none text-white-50">
+                    <ul class="navbar-nav flex-row flex-wrap">
+                        <li class="nav-item col-6 col-md-auto">
+                            <a class="nav-link py-2 px-0 px-md-2" href="https://github.com/JoelLuna02/IdolAPI" target="_blank" rel="noopener">
+                                <i class="ri-github-line"></i>
+                                <small class="d-md-none ms-2"><%= navbar.github %></small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-md-auto">
+                            <a class="nav-link py-2 px-0 px-md-2" href="https://github.com/JoelLuna02/IdolAPI/fork" target="_blank" rel="noopener">
+                                <i class="ri-git-fork-line"></i>
+                                <small class="d-md-none ms-2"><%= navbar.fork %></small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-md-auto">
+                            <a class="nav-link py-2 px-0 px-md-2" href="https://github.com/JoelLuna02/IdolAPI/issues" target="_blank" rel="noopener">
+                                <i class="ri-git-commit-line"></i>
+                                <small class="d-md-none ms-2"><%= navbar.issue %></small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
