@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import express from "express";
 import { createHandler } from "graphql-http/lib/use/express";
+import rateLimit from "express-rate-limit";
 import { ruruHTML } from "ruru/server";
 import morgan from "morgan";
 import { marked } from "marked";
@@ -22,6 +23,8 @@ import { generateIndex, shuffleArray } from "./utils";
 
 const app = express();
 
+const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+
 /** The server port */
 const port = process.env.PORT || 3000;
 
@@ -33,6 +36,7 @@ const port = process.env.PORT || 3000;
  * @returns {Promise<void>} */
 async function init_server() {
 	app.use(i18n.init);
+	app.use(limiter);
 	app.use(morgan(myCustomformat));
 	app.use(express.static("./public"));
 	app.set("view engine", "ejs");
