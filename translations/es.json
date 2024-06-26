@@ -8,6 +8,34 @@
 		"title": "Advertencia de traducción parcial",
 		"desc": "Queremos informarle que algunas secciones del sitio web no están completamente traducidas porque ciertos datos obtenidos de nuestra API están en inglés. Le recomendamos que utilice el traductor de su navegador para una mejor experiencia. Gracias por su comprensión y paciencia, y nos disculpamos por la circunstancia."
 	},
+	"zodiac": {
+		"title": "Signo",
+		"aries": "Aries",
+		"taurus": "Tauro",
+		"gemini": "Géminis",
+		"cancer": "Cáncer",
+		"leo": "Leo",
+		"virgo": "Virgo",
+		"libra": "Libra",
+		"scorpio": "Escorpio",
+		"sagittarius": "Sagitario",
+		"capricorn": "Capricornio",
+		"aquarius": "Acuario",
+		"piscis": "Piscis",
+		"unknown": "Desconocido"
+	},
+	"years": {
+		"title": "Edad",
+		"notDefined": "No definido",
+		"unKnown": "Desconocido",
+		"Other": "Otro",
+		"yearsOld": "Años"
+	},
+	"gender": {
+		"title": "Género",
+		"female": "Mujer",
+		"male": "Hombre"
+	},
 	"navbar": {
 		"title": "IdolAPI",
 		"more": "Más opciones",
