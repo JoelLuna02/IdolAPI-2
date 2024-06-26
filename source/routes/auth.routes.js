@@ -14,7 +14,7 @@ config({ path: ".env.local", override: true });
 const secret = process.env.SECRET_KEY;
 
 /** ## JWT Token
- * This function is responsible for verifying the JWT authorization token and administration privileges.
+ * This function implements user authentication and authorization methods.
  * @param {import("express").Request} req - Request
  * @param {import("express").Response} res - Response
  * @param {import("express").NextFunction} next - Next Function
@@ -29,7 +29,7 @@ export function verify_token(req, res, next) {
 			const isAdmin = req.user.isAdmin || false;
 			if (!isAdmin) {
 				return res.status(403).json({
-					message: "Forbidden: You need administrative privileges to access this resource",
+					forbidden: "You need administrative privileges to access this resource",
 				});
 			}
 			next();
