@@ -1,5 +1,5 @@
 {
-	"ext": "js,json,mjs,cjs,gql",
+	"ext": "js,json,mjs,cjs,gql,.env,.env.local",
 	"exec": "babel-node source/server.js",
 	"ignore": ["node_modules"]
 }
