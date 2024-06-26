@@ -3,7 +3,6 @@ import express from "express";
 import { createHandler } from "graphql-http/lib/use/express";
 import { ruruHTML } from "ruru/server";
 import morgan from "morgan";
-import { create } from "express-handlebars";
 import { marked } from "marked";
 import fs from "fs";
 
@@ -19,60 +18,12 @@ import cover_routes from "./routes/cover.routes";
 import connectDB from "./database";
 import VTuber from "./models/VTuber";
 import auth_router from "./routes/auth.routes";
+import { generateIndex, shuffleArray } from "./utils";
 
 const app = express();
-const hbs = create({
-	helpers: {
-		equals: function (one, two) {
-			return one === two;
-		},
-		notEquals: function (one, two) {
-			return one !== two;
-		},
-		greaterThan: function (one, two) {
-			return one > two;
-		},
-		lessThan: function (one, two) {
-			return one < two;
-		},
-	},
-});
 
 /** The server port */
 const port = process.env.PORT || 3000;
-
-/** @param {string} markdown */
-function generateIndex(markdown) {
-	const lines = markdown.split("\n");
-	const index = [];
-	lines.forEach((line, i) => {
-		if (line.startsWith("#")) {
-			const level = line.match(/^#+/)[0].length;
-			const title = line.replace(/^#+/, "").trim();
-			const id = title.replace(/\s+/g, "-").toLowerCase();
-			index.push({ level, title, id });
-			lines[i] = `${line} <a id="${id}"></a>`;
-		}
-	});
-	return { index, markdown: lines.join("\n") };
-}
-
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-/**
- * @param {any[]} array
- * @param {number} numb
- * @returns {any[]}
- */
-function shuffleArray(array, numb) {
-	for (let i = array.length - 1; i > 0; i--) {
-		const j = getRandomInt(0, i);
-		[array[i], array[j]] = [array[j], array[i]];
-	}
-	return array.slice(0, numb);
-}
 
 /** ## Server initializer
  * This function is responsible for running the Express.js server. You can configure routes, and middlewares,
@@ -84,8 +35,7 @@ async function init_server() {
 	app.use(i18n.init);
 	app.use(morgan(myCustomformat));
 	app.use(express.static("./public"));
-	app.engine("handlebars", hbs.engine);
-	app.set("view engine", "handlebars");
+	app.set("view engine", "ejs");
 	app.set("views", "./views");
 
 	AllowCORS(app, ["http://localhost:3000", "https://idolapi.koyeb.app"]);
@@ -109,23 +59,26 @@ async function init_server() {
 	});
 
 	app.get("/", async (req, res) => {
-		const navbar = res.__("navbar");
-		const footer = res.__("footer");
-		const warning = res.__("warn");
 		await connectDB();
-		const vtubers = await VTuber.find().sort({ unit: 1 }).exec();
+		const vtubers = await VTuber.find()
+			.populate("hashtag", "-_id general stream fanart memes")
+			.sort({ unit: 1 })
+			.exec();
 		let length = vtubers.length;
 		let random;
-		if (length >= 6) {
-			random = shuffleArray(vtubers, 6);
+		if (length >= 8) {
+			random = shuffleArray(vtubers, 8);
 		} else {
 			random = shuffleArray(vtubers, length);
 		}
 		return res.render("index", {
 			title: res.__("mainTitle"),
-			navbar,
-			footer,
-			warning,
+			navbar: res.__("navbar"),
+			footer: res.__("footer"),
+			warning: res.__("warn"),
+			zodiac: res.__("zodiac"),
+			gender: res.__("gender"),
+			years: res.__("years"),
 			lang: req.getLocale(),
 			vtubers: JSON.parse(JSON.stringify(vtubers)),
 			random: JSON.parse(JSON.stringify(random)),
