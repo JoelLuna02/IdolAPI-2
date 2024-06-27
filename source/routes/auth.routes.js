@@ -68,7 +68,7 @@ auth_router.post("/login", async (req, res) => {
 	const form = req.body;
 	try {
 		await connectDB();
-		const user = await JWT_Auth.findOne({ username: form.username }).select(
+		const user = await JWT_Auth.findOne({ username: { $eq: form.username } }).select(
 			"_id username password email isAdmin",
 		);
 		if (!user) return res.status(401).json({ unauthorized: "The username does not exist!" });
