@@ -1,4 +1,4 @@
-import { yellowBright, bold, green, whiteBright } from "colorette";
+import { yellowBright, bold, green, blackBright } from "colorette";
 import http from "http";
 
 /**
@@ -19,7 +19,7 @@ export const myCustomformat = (tokens, req, res) => {
 					: `\x1b[32m${status} ${statusdesc}\x1b[0m`;
 	return [
 		`[${green("INFO")}]\t `,
-		whiteBright(`"${tokens.method(req, res)} ${tokens.url(req, res)}"`),
+		blackBright(`"${tokens.method(req, res)} ${tokens.url(req, res)}"`),
 		"-",
 		bold(colorizedStatus),
 		tokens.res(req, res, "content-length"),
