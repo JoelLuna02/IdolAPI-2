@@ -23,8 +23,6 @@ import { generateIndex, shuffleArray } from "./utils";
 
 const app = express();
 
-const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
-
 /** The server port */
 const port = process.env.PORT || 3000;
 
@@ -36,8 +34,19 @@ const port = process.env.PORT || 3000;
  * @returns {Promise<void>} */
 async function init_server() {
 	app.use(i18n.init);
-	app.use(limiter);
 	app.use(morgan(myCustomformat));
+	app.use(
+		rateLimit({
+			windowMs: 15 * 60 * 1000,
+			handler: (req, res) => {
+				return res
+					.status(429)
+					.render("too-many", { title: res.__("tooManyTitle"), tooMany: res.__("tooMany") });
+			},
+			headers: true,
+			max: 100,
+		}),
+	);
 	app.use(express.static("./public"));
 	app.set("view engine", "ejs");
 	app.set("views", "./views");
@@ -71,7 +80,7 @@ async function init_server() {
 		let length = vtubers.length;
 		let random;
 		if (length >= 8) {
-			random = shuffleArray(vtubers, 8);
+			random = shuffleArray(vtubers, 6);
 		} else {
 			random = shuffleArray(vtubers, length);
 		}
