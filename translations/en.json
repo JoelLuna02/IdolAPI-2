@@ -4,6 +4,7 @@
 	"aboutTitle": "About this | IdolAPI",
 	"supportTitle": "Support us | IdolAPI",
 	"notFoundTitle": "Page not found | IdolAPI",
+	"tooManyTitle": "It is done for good reasons | IdolAPI",
 	"warn": {
 		"title": "Partial translation warning",
 		"desc": "We want to inform you that some sections of the website are not fully translated because certain data obtained from our API is in English. We recommend that you use your browser's translator for a better experience. Thank you for your understanding and patience, and we apologize for the circumstance."
@@ -60,6 +61,10 @@
 	},
 	"support": {
 		"title": "Support us"
+	},
+	"tooMany": {
+		"title": "Too many requests",
+		"desc": "It seems to me that you went too far with the requests. Better watch the streams of your favorite VTubers and come back in a few minutes. Don't cry either."
 	},
 	"docs": {
 		"title": "Documentation",
