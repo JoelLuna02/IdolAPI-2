@@ -98,7 +98,7 @@
                 <div class="row g-1">
                     <% random.forEach(function(vtuber) { %>
                         <div class="col-md-6 col-lg-4">
-                            <div class="card mx-3 mx-md-5 mx-lg-2 mx-xl-2 footing my-3 my-lg-2 outfit-font">
+                            <div class="card mx-3 mx-md-5 mx-lg-2 mx-xl-5 footing my-3 my-lg-2 outfit-font">
                                 <div class="card-body text-center">
                                     <a class="card-title fw-bold fs-2 lh-1" href="/api/vtuber/<%=vtuber._id%>"><%= vtuber.fullname %></a>
                                     <% switch (vtuber.branch) {
@@ -114,7 +114,7 @@
                                                 <%= vtuber.branch %> - <%= vtuber.unit %>
                                             </span></h4>
                                             <% break; %>
-                                            <% case "Genesis": %>
+                                            <% case "GENESIS": %>
                                             <h4><span class="badge rounded-pill text-bg-success">
                                                 <%= vtuber.branch %> - <%= vtuber.unit %>
                                             </span></h4>
@@ -141,7 +141,7 @@
                                     <% if (vtuber.quote === null ) { %>
                                     <p class="fst-italic">No description</p>
                                     <% } else { %>
-                                    <p><%= vtuber.quote %></p>
+                                    <p class="lh-1"><%= vtuber.quote %></p>
                                     <% } %>
                                     </p>
                                     <div class="py-2">
@@ -179,7 +179,7 @@
                                                     <% case "Virgo": %> <%= zodiac.virgo %> <% break; %>
                                                     <% case "Libra": %> <%= zodiac.libra %> <% break; %>
                                                     <% case "Scorpio": %> <%= zodiac.scorpio %> <% break; %>
-                                                    <% case "Sagittarius": %> <%= zodiac.sagittarus %> <% break; %>
+                                                    <% case "Sagittarius": %> <%= zodiac.sagittarius %> <% break; %>
                                                     <% case "Capricorn": %> <%= zodiac.capricorn %> <% break; %>
                                                     <% case "Aquarius": %> <%= zodiac.aquarius %> <% break; %>
                                                     <% case "Piscis": %> <%= zodiac.piscis %> <% break; %>
