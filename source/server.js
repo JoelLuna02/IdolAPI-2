@@ -44,7 +44,7 @@ async function init_server() {
 					.render("too-many", { title: res.__("tooManyTitle"), tooMany: res.__("tooMany") });
 			},
 			headers: true,
-			max: 100,
+			max: 200,
 		}),
 	);
 	app.use(express.static("./public"));
