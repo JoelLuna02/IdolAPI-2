@@ -3,10 +3,24 @@
         <div class="container-fluid container-xl px-2 px-md-4 px-lg-5 py-1 py-md-0">
             <a class="navbar-brand fw-bold ms-3 ms-md-0" href="/"><%= navbar.title %></a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#MainMenu"
+            <button class="navbar-toggler d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#MainMenu"
                 aria-controls="MainMenu" aria-label="Toggle navigation">
                 <i class="ri-menu-fill"></i>
             </button>
+            <div class="d-block d-md-none">
+                <a class="py-0 ps-2 px-md-2" href="https://github.com/JoelLuna02/IdolAPI" target="_blank" rel="noopener">
+                    <i class="ri-github-line"></i>
+                    <small class="d-none ms-2"><%= navbar.github %></small>
+                </a>
+                <a class="py-0 ps-2 px-md-2" href="https://github.com/JoelLuna02/IdolAPI/fork" target="_blank" rel="noopener">
+                    <i class="ri-git-fork-line"></i>
+                    <small class="d-none ms-2"><%= navbar.fork %></small>
+                </a>
+                <a class="py-0 px-2 px-md-2" href="https://github.com/JoelLuna02/IdolAPI/issues" target="_blank" rel="noopener">
+                    <i class="ri-git-commit-line"></i>
+                    <small class="d-none ms-2"><%= navbar.issue %></small>
+                </a>
+            </div>
 
             <div class="offcanvas-md offcanvas-end flex-grow-1 footing border border-0" tabindex="-1" id="MainMenu"
                 aria-labelledby="LabelMainMenu" data-bs-scroll="true" data-bs-backdrop="false">

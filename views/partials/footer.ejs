@@ -21,8 +21,10 @@
     </div>
 </div>
 
-<footer class="mx-2 mx-md-3 mx-lg-4 mt-3 lexend-deca-font sticky-bottom">
-    <div class="rounded shadow p-3 footing d-flex flex-wrap justify-content-between align-items-center py-3 mt-4">
+
+<footer class="lexend-deca-font sticky-bottom shadow ">
+    <div class="d-none d-md-block mx-2 mx-md-3 mx-lg-4 mt-3">
+    <div class="rounded p-3 footing d-flex flex-wrap justify-content-between align-items-center py-3 mt-4">
         <p class="col-md-4 col-lg-4 col-xl-4 mb-0 lh-sm">&copy; 2022 - <%= footer.about %></p>
         <a href="/"
             class="col-md-2 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 my-3 my-md-0 me-md-auto link-dark text-decoration-none text-center text-md-start">
@@ -37,5 +39,32 @@
             <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-google-line"></i></a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2"><i class="ri-microsoft-line"></i></a></li>
         </ul>
+    </div>
+    </div>
+    <div class="d-block d-md-none">
+        <div class="p-3 footing text-center py-3 mt-4">
+        <div class="row">
+            <div class="col-3 text-center">
+                <a class="px-2 px-lg-0" href="/docs" data-bs-toggle="tooltip" data-bs-title="Documentation" data-bs-placement="top">
+                    <i class="ri-article-line me-1 fs-2"></i>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a class="px-2 px-lg-0" href="/about"  data-bs-toggle="tooltip" data-bs-title="About" data-bs-placement="top">
+                    <i class="ri-information-2-line me-1 fs-2"></i>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a class="px-2 px-lg-0" href="/support" data-bs-toggle="tooltip" data-bs-title="Support us" data-bs-placement="top">
+                    <i class="ri-hand-heart-line me-1 fs-2"></i>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a class="px-2 px-md-2" href="/gql" data-bs-toggle="tooltip" data-bs-title="GraphQL Console" data-bs-placement="top">
+                    <i class="ri-terminal-box-line me-1 fs-2"></i>
+                </a>
+            </div>
+        </div>
+        </div>
     </div>
 </footer>

@@ -23,15 +23,10 @@
                                             <p class="pt-3 pt-md-5 outfit-font fw-bold display-1">Introducing IdolAPI
                                             </p>
                                             <p class="lh-sm">
-                                                IdolAPI is an open source platform based on Idol corp., designed to
-                                                facilitate
-                                                learning and
-                                                practicing key REST API development concepts. Our REST API offers an
-                                                intuitive
-                                                and accessible
-                                                interface that allows developers to experiment with API design
-                                                principles and
-                                                make HTTP requests.
+                                                IdolAPI is an open source platform based on Idol corp., designed to facilitate
+                                                learning and practicing key REST API development concepts. Our REST API offers an
+                                                intuitive and accessible interface that allows developers to experiment with API
+                                                design principles and make HTTP requests.
                                             </p>
                                         </div>
                                     </div>
@@ -91,14 +86,17 @@
         </div>
 
         <div class="background2">
-            <div class="p-4 p-md-4 p-lg-5">
+            <div class="p-4 py-md-4 p-lg-5">
                 <div class="divider d-flex align-items-center my-4">
                     <h1 class="text-center fw-bold mx-3 mb-0 outfit-font">Idol VTubers</h1>
                 </div>
-                <div class="row g-1">
+                <div class="row">
+                <div class="col-xl-1"></div>
+                <div class="col-xl-10">
+                <div class="row g-0">
                     <% random.forEach(function(vtuber) { %>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card mx-3 mx-md-5 mx-lg-2 mx-xl-5 footing my-3 my-lg-2 outfit-font">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="card mx-3 mx-sm-2 mx-md-3 mx-lg-2 mx-xl-3 footing my-3 my-lg-2 outfit-font">
                                 <div class="card-body text-center">
                                     <a class="card-title fw-bold fs-2 lh-1" href="/api/vtuber/<%=vtuber._id%>"><%= vtuber.fullname %></a>
                                     <% switch (vtuber.branch) {
@@ -197,6 +195,9 @@
                         </div>
                     <% }) %>
                 </div>
+                </div>
+                <div class="col-xl-1"></div>
+            </div>
             </div>
         </div> 
     </main>
