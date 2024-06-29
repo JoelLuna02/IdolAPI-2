@@ -11,7 +11,7 @@
 
 </div>
 
-IdolAPI, an open source platform based on Idol corp., designed to facilitate learning and practicing key REST API development concepts.
+IdolAPI, an open source platform based on [Idol corp](https://idol-company.com)., designed to facilitate learning and practicing key REST API development concepts.
 
 ## Getting Started
 ![Node LTS](https://img.shields.io/node/v-lts/eslint?color=green) ![NPM Version](https://img.shields.io/npm/v/eslint)
@@ -26,6 +26,7 @@ You can configure locally by following these steps:
   ```bash
   MONGODB_URI="mongodb://<Your-Mongodb-Connection>"
   MONGODB_NAME="<Your-Database-name>"
+  MONGODB_OPTIONS="?<Option-Parameters>" #Optional
   SECRET_KEY="YOUR-SECRET-KEY"
   ```
 - And finally, run the server in development mode:
@@ -50,7 +51,9 @@ Take a look at the [documentation](http://localhost:3000/docs) for more informat
 
 ---
 
-## **Become a sponsor!**  ![Github Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-EA4AAA?logo=githubsponsors&logoColor=fff&style=flat)
+## ~~**Become a sponsor!**  ![Github Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-EA4AAA?logo=githubsponsors&logoColor=fff&style=flat)~~
 
-You can also become a Sponsor through [Github Sponsors](https://github.com/sponsors/JoelLuna02).
-Your Name and your avatar will be displayed in future projects and websites.
+~~You can also become a Sponsor through [Github Sponsors](#).
+Your Name and your avatar will be displayed in future projects and websites.~~
+
+> Comming soon...
